@@ -71,13 +71,13 @@ module fpga_core #
     output wire [CH_CNT*8-1:0]   eth_txc,
     input  wire [CH_CNT-1:0]     eth_rx_clk,
     input  wire [CH_CNT-1:0]     eth_rx_rst,
-    input  wire [CH_CNT*64-1:0]  eth_rxd,
-    input  wire [CH_CNT*8-1:0]   eth_rxc
+    input  wire [CH_CNT*128-1:0]  eth_rxd,
+    input  wire [CH_CNT*16-1:0]   eth_rxc
 );
 
 // AXI between MAC and Ethernet modules
-wire [63:0] rx_axis_tdata;
-wire [7:0] rx_axis_tkeep;
+wire [127:0] rx_axis_tdata;
+wire [15:0] rx_axis_tkeep;
 wire rx_axis_tvalid;
 wire rx_axis_tready;
 wire rx_axis_tlast;
@@ -328,7 +328,7 @@ endgenerate
 eth_mac_10g_fifo #(
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
-    .MIN_FRAME_LENGTH(64),
+    .MIN_FRAME_LENGTH(128), /*paso de 64 a 128*/
     .TX_FIFO_DEPTH(4096),
     .TX_FRAME_FIFO(1),
     .RX_FIFO_DEPTH(4096),
@@ -356,10 +356,10 @@ eth_mac_10g_fifo_inst (
     .rx_axis_tlast(rx_axis_tlast),
     .rx_axis_tuser(rx_axis_tuser),
 
-    .xgmii_rxd(eth_rxd[0*64 +: 64]),
+    .xgmii_rxd(eth_rxd[0*64 +: 64]), /*pasar de 64 a 128*/
     .xgmii_rxc(eth_rxc[0*8 +: 8]),
-    .xgmii_txd(eth_txd[0*64 +: 64]),
-    .xgmii_txc(eth_txc[0*8 +: 8]),
+    .xgmii_txd(eth_txd[0*128 +: 128]), /*paso de 64 a 128*/
+    .xgmii_txc(eth_txc[0*16 +: 16]), /*paso de 8 a 16*/
 
     .tx_fifo_overflow(),
     .tx_fifo_bad_frame(),
@@ -375,8 +375,9 @@ eth_mac_10g_fifo_inst (
     .cfg_rx_enable(1'b1)
 );
 
+
 eth_axis_rx #(
-    .DATA_WIDTH(64)
+    .DATA_WIDTH(128)
 )
 eth_axis_rx_inst (
     .clk(clk),
@@ -405,8 +406,9 @@ eth_axis_rx_inst (
     .error_header_early_termination()
 );
 
+
 eth_axis_tx #(
-    .DATA_WIDTH(64)
+    .DATA_WIDTH(128) /*paso de 64 a 128*/
 )
 eth_axis_tx_inst (
     .clk(clk),

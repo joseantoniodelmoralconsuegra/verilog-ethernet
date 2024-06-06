@@ -33,12 +33,12 @@ THE SOFTWARE.
  */
 module eth_mac_10g #
 (
-    parameter DATA_WIDTH = 64,
+    parameter DATA_WIDTH = 128, /*paso de 64 a 128*/
     parameter KEEP_WIDTH = (DATA_WIDTH/8),
     parameter CTRL_WIDTH = (DATA_WIDTH/8),
     parameter ENABLE_PADDING = 1,
     parameter ENABLE_DIC = 1,
-    parameter MIN_FRAME_LENGTH = 64,
+    parameter MIN_FRAME_LENGTH = 128, /*paso de 64 a 128*/
     parameter PTP_TS_ENABLE = 0,
     parameter PTP_TS_FMT_TOD = 1,
     parameter PTP_TS_WIDTH = PTP_TS_FMT_TOD ? 96 : 64,
@@ -188,8 +188,8 @@ parameter TX_USER_WIDTH_INT = MAC_CTRL_ENABLE ? (PTP_TS_ENABLE ? (TX_PTP_TAG_ENA
 
 // bus width assertions
 initial begin
-    if (DATA_WIDTH != 32 && DATA_WIDTH != 64) begin
-        $error("Error: Interface width must be 32 or 64");
+    if (DATA_WIDTH != 32 && DATA_WIDTH != 64 && DATA_WIDTH != 128) begin
+        $error("Error: Interface width must be 32, 64 or 128");
         $finish;
     end
 
@@ -214,9 +214,9 @@ wire [RX_USER_WIDTH-1:0]  rx_axis_tuser_int;
 
 generate
 
-if (DATA_WIDTH == 64) begin
+if (DATA_WIDTH == 128) begin /*paso de 64 a 128*/
 
-axis_xgmii_rx_64 #(
+axis_xgmii_rx_128 #(
     .DATA_WIDTH(DATA_WIDTH),
     .KEEP_WIDTH(KEEP_WIDTH),
     .CTRL_WIDTH(CTRL_WIDTH),
@@ -242,7 +242,8 @@ axis_xgmii_rx_inst (
     .error_bad_fcs(rx_error_bad_fcs)
 );
 
-axis_xgmii_tx_64 #(
+
+axis_xgmii_tx_128 #(
     .DATA_WIDTH(DATA_WIDTH),
     .KEEP_WIDTH(KEEP_WIDTH),
     .CTRL_WIDTH(CTRL_WIDTH),
@@ -280,6 +281,7 @@ axis_xgmii_tx_inst (
 
 end else begin
 
+/*
 axis_xgmii_rx_32 #(
     .DATA_WIDTH(DATA_WIDTH),
     .KEEP_WIDTH(KEEP_WIDTH),
@@ -304,6 +306,8 @@ axis_xgmii_rx_inst (
     .error_bad_frame(rx_error_bad_frame),
     .error_bad_fcs(rx_error_bad_fcs)
 );
+
+*/
 
 assign rx_start_packet[1] = 1'b0;
 

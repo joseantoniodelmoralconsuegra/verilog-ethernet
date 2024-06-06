@@ -543,39 +543,23 @@ qsfp1_phy_inst (
     .phy_4_cfg_rx_prbs31_enable(1'b0)
 );
 
+
 fpga_core #(
     .SW_CNT(4),
     .LED_CNT(3),
     .UART_CNT(1),
     .QSFP_CNT(QSFP_CNT),
     .CH_CNT(CH_CNT)
-)
-core_inst (
-    /*
-     * Clock: 156.25 MHz
-     * Synchronous reset
-     */
+) core (
     .clk(clk_156mhz_int),
     .rst(rst_156mhz_int),
-
-    /*
-     * GPIO
-     */
     .sw(sw_int),
     .led(led),
     .qsfp_led_act(),
     .qsfp_led_stat_g(),
     .qsfp_led_stat_y(),
-
-    /*
-     * UART
-     */
     .uart_txd(uart_txd),
     .uart_rxd(uart_rxd),
-
-    /*
-     * Ethernet: QSFP28
-     */
     .eth_tx_clk(eth_tx_clk),
     .eth_tx_rst(eth_tx_rst),
     .eth_txd(eth_txd),
@@ -585,6 +569,7 @@ core_inst (
     .eth_rxd(eth_rxd),
     .eth_rxc(eth_rxc)
 );
+
 
 endmodule
 

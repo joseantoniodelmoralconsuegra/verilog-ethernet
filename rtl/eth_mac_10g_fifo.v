@@ -33,14 +33,14 @@ THE SOFTWARE.
  */
 module eth_mac_10g_fifo #
 (
-    parameter DATA_WIDTH = 64,
+    parameter DATA_WIDTH = 128, /*paso de 64 a 128*/
     parameter CTRL_WIDTH = (DATA_WIDTH/8),
     parameter AXIS_DATA_WIDTH = DATA_WIDTH,
     parameter AXIS_KEEP_ENABLE = (AXIS_DATA_WIDTH>8),
     parameter AXIS_KEEP_WIDTH = (AXIS_DATA_WIDTH/8),
     parameter ENABLE_PADDING = 1,
     parameter ENABLE_DIC = 1,
-    parameter MIN_FRAME_LENGTH = 64,
+    parameter MIN_FRAME_LENGTH = 128, /*paso de 64 a 128*/
     parameter TX_FIFO_DEPTH = 4096,
     parameter TX_FIFO_RAM_PIPELINE = 1,
     parameter TX_FRAME_FIFO = 1,
