@@ -274,8 +274,8 @@ end
 // FCS cycle calculation
 always @* begin
     casez (s_empty_reg)
-        4'd15: begin
-            fcs_output_txd_0 = {{2{XGMII_IDLE}}, {XGMII_TERM}, ~crc_state_next[0][31:0],  s_tdata_aux_lsb_2[7:0], s_tdata_aux_msb_3}; /*fcs_output_txd_0 = {{2{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[0][31:0], s_tdata_reg[7:0]};*/
+        /*4'd15: begin
+            fcs_output_txd_0 = {{2{XGMII_IDLE}}, {XGMII_TERM}, ~crc_state_next[0][31:0],  s_tdata_aux_lsb_2[7:0], s_tdata_aux_msb_3};
             fcs_output_txd_1 = {16{XGMII_IDLE}};
             fcs_output_txc_0 = 16'b1110000000000000;
             fcs_output_txc_1 = 16'b1111111111111111;
@@ -384,6 +384,74 @@ always @* begin
             fcs_output_txd_1 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_reg[15][31:0], s_tdata_aux_msb_2}; // fcs_output_txd_1 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_reg[7][31:0]};
             fcs_output_txc_0 = 16'b0000000000000000; 
             fcs_output_txc_1 = 16'b1111000000000000; 
+            ifg_offset = 8'd4;
+        end*/
+        
+        
+       
+        
+        
+        4'd8: begin
+            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[7][31:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111111110000; 
+            fcs_output_txc_1 = 16'b1111111111111111;
+            ifg_offset = 8'd12;
+        end
+        4'd7: begin
+            fcs_output_txd_0 = {{10{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[8][31:0], s_tdata_aux_msb_3[7:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111111100000; 
+            fcs_output_txc_1 = 16'b1111111111111111;
+            ifg_offset = 8'd11;
+        end
+        4'd6: begin
+            fcs_output_txd_0 = {{9{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[9][31:0], s_tdata_aux_msb_3[15:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111111000000; 
+            fcs_output_txc_1 = 16'b1111111111111111;
+            ifg_offset = 8'd10;
+        end
+        4'd5: begin
+            fcs_output_txd_0 = {{8{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[10][31:0], s_tdata_aux_msb_3[23:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111110000000; 
+            fcs_output_txc_1 = 16'b1111111111111111;
+            ifg_offset = 8'd9;
+        end
+        4'd4: begin
+            fcs_output_txd_0 = {{7{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[11][31:0], s_tdata_aux_msb_3[31:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111100000000; 
+            fcs_output_txc_1 = 16'b1111111111111111;
+            ifg_offset = 8'd8;
+        end
+        4'd3: begin
+            fcs_output_txd_0 = {{6{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[12][31:0], s_tdata_aux_msb_3[39:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111111000000000; 
+            fcs_output_txc_1 = 16'b1111111111111111; 
+            ifg_offset = 8'd7;
+        end
+        4'd2: begin
+            fcs_output_txd_0 = {{5{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[13][31:0], s_tdata_aux_msb_3[47:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111110000000000; 
+            fcs_output_txc_1 = 16'b1111111111111111; 
+            ifg_offset = 8'd6;
+        end
+        4'd1: begin
+            fcs_output_txd_0 = {{4{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0], s_tdata_aux_msb_3[55:0]};
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111100000000000; 
+            fcs_output_txc_1 = 16'b1111111111111111; 
+            ifg_offset = 8'd5;
+        end
+        4'd0: begin
+            fcs_output_txd_0 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[15][31:0], s_tdata_aux_msb_3}; // fcs_output_txd_0 = s_tdata_reg;
+            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+            fcs_output_txc_0 = 16'b1111000000000000; 
+            fcs_output_txc_1 = 16'b1111111111111111; 
             ifg_offset = 8'd4;
         end
     endcase
