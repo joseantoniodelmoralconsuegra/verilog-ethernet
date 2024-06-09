@@ -139,8 +139,10 @@ reg [3:0] swap_txc = 4'd0;
 */
 reg [DATA_WIDTH-1:0] s_axis_tdata_masked, s_axis_tdata_masked_crc;
 
-reg [64-1:0] s_tdata_reg = 0, s_tdata_next, s_tdata_aux_lsb, s_tdata_aux_lsb_2, s_tdata_aux_lsb_3, s_tdata_aux_msb, s_tdata_aux_msb_2, s_tdata_aux_msb_3, s_tdata_reg_aux, s_tdata_reg_aux_2;
-reg [8-1:0] s_empty_reg = 0, s_empty_next, s_empty_aux_lsb, s_empty_aux_lsb_2, s_empty_aux_lsb_3, s_empty_aux_msb, s_empty_aux_msb_2, s_empty_aux_msb_3, s_empty_reg_aux, s_empty_reg_aux_2;
+reg [DATA_WIDTH-1:0] s_tdata_reg = 0, s_tdata_next, s_tdata_reg_aux, s_tdata_reg_aux_2; // cambio aquí *******
+reg [64-1:0] s_tdata_aux_lsb, s_tdata_aux_lsb_2, s_tdata_aux_lsb_3, s_tdata_aux_msb, s_tdata_aux_msb_2, s_tdata_aux_msb_3; // cambio aquí *******
+reg [EMPTY_WIDTH-1:0] s_empty_reg = 0, s_empty_next, s_empty_reg_aux, s_empty_reg_aux_2; // cambio aquí *******
+reg [8-1:0] s_empty_aux_lsb, s_empty_aux_lsb_2, s_empty_aux_lsb_3, s_empty_aux_msb, s_empty_aux_msb_2, s_empty_aux_msb_3; // cambio aquí *******
 reg [8-1:0] s_axis_tkeep_aux_lsb = 0, s_axis_tkeep_aux_lsb_2, s_axis_tkeep_aux_lsb_3;
 reg [8-1:0] s_axis_tkeep_aux_msb = 0, s_axis_tkeep_aux_msb_2, s_axis_tkeep_aux_msb_3;
 reg [16-1:0] s_axis_tkeep_new;
@@ -420,28 +422,28 @@ always @* begin
             ifg_offset = 8'd9;
         end
         4'd4: begin
-            fcs_output_txd_0 = {{7{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[11][31:0], s_tdata_aux_msb_3[31:0]};
+            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[11][31:0]};
             fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111100000000; 
+            fcs_output_txc_0 = 16'b1111111111110000; 
             fcs_output_txc_1 = 16'b1111111111111111;
             ifg_offset = 8'd8;
         end
         4'd3: begin
-            fcs_output_txd_0 = {{6{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[12][31:0], s_tdata_aux_msb_3[39:0]};
+            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
             fcs_output_txd_1 = {{16{XGMII_IDLE}}};
             fcs_output_txc_0 = 16'b1111111000000000; 
             fcs_output_txc_1 = 16'b1111111111111111; 
             ifg_offset = 8'd7;
         end
         4'd2: begin
-            fcs_output_txd_0 = {{5{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[13][31:0], s_tdata_aux_msb_3[47:0]};
+            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
             fcs_output_txd_1 = {{16{XGMII_IDLE}}};
             fcs_output_txc_0 = 16'b1111110000000000; 
             fcs_output_txc_1 = 16'b1111111111111111; 
             ifg_offset = 8'd6;
         end
         4'd1: begin
-            fcs_output_txd_0 = {{4{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0], s_tdata_aux_msb_3[55:0]};
+            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
             fcs_output_txd_1 = {{16{XGMII_IDLE}}};
             fcs_output_txc_0 = 16'b1111100000000000; 
             fcs_output_txc_1 = 16'b1111111111111111; 
@@ -537,7 +539,7 @@ always @* begin
             s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
             s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
-            s_tdata_next = s_tdata_aux_msb_2[127:64]; // s_tdata_next = s_axis_tdata_masked[127:64];
+            s_tdata_next = {s_tdata_aux_lsb[127:64], s_tdata_aux_msb_2[127:64]}; // s_tdata_next = s_axis_tdata_masked[127:64];
             s_empty_next = keep2empty(s_axis_tkeep_new); // s_empty_next = keep2empty(s_axis_tkeep);
 
             if (s_axis_tvalid && s_axis_tready) begin
@@ -577,7 +579,7 @@ always @* begin
             s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
             s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
-            s_tdata_next = s_tdata_aux_msb_2; // s_tdata_next = s_axis_tdata_masked[127:64];
+            s_tdata_next = {s_tdata_aux_lsb[127:64], s_tdata_aux_msb_2[127:64]}; // s_tdata_next = s_tdata_aux_msb_2; // s_tdata_next = s_axis_tdata_masked[127:64];
             s_empty_next = keep2empty(s_axis_tkeep_new); // s_empty_next = keep2empty(s_axis_tkeep);
 
             if (!s_axis_tvalid_aux_2 || s_axis_tlast_aux_2) begin // if (!s_axis_tvalid || s_axis_tlast) begin
@@ -590,7 +592,7 @@ always @* begin
                         s_empty_next = 0;
                         state_next = STATE_PAD;
                     end else begin
-                        if (keep2empty(s_axis_tkeep) > CTRL_WIDTH-frame_min_count_reg) begin
+                        if (keep2empty(s_axis_tkeep_new) > CTRL_WIDTH-frame_min_count_reg) begin
                             s_empty_next = CTRL_WIDTH-frame_min_count_reg;
                         end
                         if (frame_error_next) begin
