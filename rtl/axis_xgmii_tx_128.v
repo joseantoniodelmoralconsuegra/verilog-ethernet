@@ -268,15 +268,14 @@ always @* begin
         s_axis_tdata_masked[j*8 +: 8] = s_axis_tkeep[j] ? s_axis_tdata[j*8 +: 8] : 8'd0; 
     end
     
-    s_axis_tdata_masked_crc = {s_tdata_aux_lsb_2, s_tdata_aux_msb_3};
-    s_axis_tkeep_new = {s_axis_tkeep_aux_lsb_2, s_axis_tkeep_aux_msb_3};
+    s_axis_tdata_masked_crc = {s_tdata_aux_msb_2, s_tdata_aux_lsb_2};
 end
 
 
 // FCS cycle calculation
 always @* begin
     casez (s_empty_reg)
-        /*4'd15: begin
+        4'd15: begin
             fcs_output_txd_0 = {{2{XGMII_IDLE}}, {XGMII_TERM}, ~crc_state_next[0][31:0],  s_tdata_aux_lsb_2[7:0], s_tdata_aux_msb_3};
             fcs_output_txd_1 = {16{XGMII_IDLE}};
             fcs_output_txc_0 = 16'b1110000000000000;
@@ -387,75 +386,75 @@ always @* begin
             fcs_output_txc_0 = 16'b0000000000000000; 
             fcs_output_txc_1 = 16'b1111000000000000; 
             ifg_offset = 8'd4;
-        end*/
+        end
         
         
        
         
         
-        4'd8: begin
-            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[7][31:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111111110000; 
-            fcs_output_txc_1 = 16'b1111111111111111;
-            ifg_offset = 8'd12;
-        end
-        4'd7: begin
-            fcs_output_txd_0 = {{10{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[8][31:0], s_tdata_aux_msb_3[7:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111111100000; 
-            fcs_output_txc_1 = 16'b1111111111111111;
-            ifg_offset = 8'd11;
-        end
-        4'd6: begin
-            fcs_output_txd_0 = {{9{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[9][31:0], s_tdata_aux_msb_3[15:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111111000000; 
-            fcs_output_txc_1 = 16'b1111111111111111;
-            ifg_offset = 8'd10;
-        end
-        4'd5: begin
-            fcs_output_txd_0 = {{8{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[10][31:0], s_tdata_aux_msb_3[23:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111110000000; 
-            fcs_output_txc_1 = 16'b1111111111111111;
-            ifg_offset = 8'd9;
-        end
-        4'd4: begin
-            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[11][31:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111111110000; 
-            fcs_output_txc_1 = 16'b1111111111111111;
-            ifg_offset = 8'd8;
-        end
-        4'd3: begin
-            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111111000000000; 
-            fcs_output_txc_1 = 16'b1111111111111111; 
-            ifg_offset = 8'd7;
-        end
-        4'd2: begin
-            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111110000000000; 
-            fcs_output_txc_1 = 16'b1111111111111111; 
-            ifg_offset = 8'd6;
-        end
-        4'd1: begin
-            fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111100000000000; 
-            fcs_output_txc_1 = 16'b1111111111111111; 
-            ifg_offset = 8'd5;
-        end
-        4'd0: begin
-            fcs_output_txd_0 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[15][31:0], s_tdata_aux_msb_3}; // fcs_output_txd_0 = s_tdata_reg;
-            fcs_output_txd_1 = {{16{XGMII_IDLE}}};
-            fcs_output_txc_0 = 16'b1111000000000000; 
-            fcs_output_txc_1 = 16'b1111111111111111; 
-            ifg_offset = 8'd4;
-        end
+        // 4'd8: begin
+        //     fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[7][31:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111111110000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111;
+        //     ifg_offset = 8'd12;
+        // end
+        // 4'd7: begin
+        //     fcs_output_txd_0 = {{10{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[8][31:0], s_tdata_aux_msb_3[7:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111111100000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111;
+        //     ifg_offset = 8'd11;
+        // end
+        // 4'd6: begin
+        //     fcs_output_txd_0 = {{9{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[9][31:0], s_tdata_aux_msb_3[15:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111111000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111;
+        //     ifg_offset = 8'd10;
+        // end
+        // 4'd5: begin
+        //     fcs_output_txd_0 = {{8{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[10][31:0], s_tdata_aux_msb_3[23:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111110000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111;
+        //     ifg_offset = 8'd9;
+        // end
+        // 4'd4: begin
+        //     fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[11][31:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111111110000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111;
+        //     ifg_offset = 8'd8;
+        // end
+        // 4'd3: begin
+        //     fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111111000000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111; 
+        //     ifg_offset = 8'd7;
+        // end
+        // 4'd2: begin
+        //     fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111110000000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111; 
+        //     ifg_offset = 8'd6;
+        // end
+        // 4'd1: begin
+        //     fcs_output_txd_0 = {{11{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[14][31:0]};
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111100000000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111; 
+        //     ifg_offset = 8'd5;
+        // end
+        // 4'd0: begin
+        //     fcs_output_txd_0 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_next[15][31:0], s_tdata_aux_msb_3}; // fcs_output_txd_0 = s_tdata_reg;
+        //     fcs_output_txd_1 = {{16{XGMII_IDLE}}};
+        //     fcs_output_txc_0 = 16'b1111000000000000; 
+        //     fcs_output_txc_1 = 16'b1111111111111111; 
+        //     ifg_offset = 8'd4;
+        // end
     endcase
 end
 
@@ -513,6 +512,8 @@ always @* begin
             // s_empty_next = keep2empty(s_axis_tkeep);
 
             if (s_axis_tvalid && s_axis_tready) begin
+                frame_start_next = 1'b1;
+                s_axis_tready_next = 1'b1;
                 state_next = STATE_PREAMBLE;
             end else begin
                 swap_lanes_next = 1'b0;
@@ -521,44 +522,8 @@ always @* begin
                 state_next = STATE_IDLE;
             end
         end
+
         STATE_PREAMBLE: begin
-            // idle state - wait for data
-            frame_error_next = 1'b0;
-            frame_min_count_next = MIN_FRAME_LENGTH-4-CTRL_WIDTH;
-            reset_crc = 1'b1;
-            s_axis_tready_next = cfg_tx_enable;
-
-            // XGMII idle
-            xgmii_txd_next = {CTRL_WIDTH{XGMII_IDLE}};
-            xgmii_txc_next = {CTRL_WIDTH{1'b1}};
-            
-            s_tdata_aux_lsb = s_axis_tdata_masked[63:0];
-            s_tdata_aux_msb = s_axis_tdata_masked[127:64];
-            // s_empty_aux_lsb = keep2empty(s_axis_tkeep);
-            // s_empty_aux_msb = keep2empty(s_axis_tkeep);
-            s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
-            s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
-
-            s_tdata_next = {s_tdata_aux_lsb[127:64], s_tdata_aux_msb_2[127:64]}; // s_tdata_next = s_axis_tdata_masked[127:64];
-            s_empty_next = keep2empty(s_axis_tkeep_new); // s_empty_next = keep2empty(s_axis_tkeep);
-
-            if (s_axis_tvalid && s_axis_tready) begin
-                // XGMII start, preamble, and SFD
-                // xgmii_txd_next = {ETH_SFD, {6{ETH_PRE}}, XGMII_START};
-                xgmii_txd_next = {s_tdata_aux_lsb_2, ETH_SFD, {6{ETH_PRE}}, XGMII_START}; // xgmii_txd_next = {s_axis_tdata_masked[63:0], ETH_SFD, {6{ETH_PRE}}, XGMII_START};
-                //xgmii_txd_next = {ETH_SFD, {6{ETH_PRE}}, XGMII_START, {8{XGMII_IDLE}}};
-                xgmii_txc_next = 16'b0000000000000001; /*xgmii_txc_next = 8'b00000001;*/
-                frame_start_next = 1'b1;
-                s_axis_tready_next = 1'b1;
-                state_next = STATE_PAYLOAD;
-            end else begin
-                swap_lanes_next = 1'b0;
-                ifg_count_next = 16'd0; /*ifg_count_next = 8'd0;*/
-                deficit_idle_count_next = 2'd0;
-                state_next = STATE_IDLE;
-            end
-        end
-        STATE_PAYLOAD: begin
             // transfer payload
             update_crc = 1'b1;
             s_axis_tready_next = 1'b1;
@@ -568,31 +533,28 @@ always @* begin
             end else begin
                 frame_min_count_next = 0;
             end
-            
-            xgmii_txd_next = {s_tdata_aux_lsb_2, s_tdata_aux_msb_3}; // xgmii_txd_next = {s_axis_tdata_masked[63:0], s_tdata_reg};
-            xgmii_txc_next = {CTRL_WIDTH{1'b0}};
-            
+
+            xgmii_txd_next = {s_tdata_aux_lsb_2, ETH_SFD, {6{ETH_PRE}}, XGMII_START};
+            xgmii_txc_next = 16'b0000000000000001;
+
             s_tdata_aux_lsb = s_axis_tdata_masked[63:0];
             s_tdata_aux_msb = s_axis_tdata_masked[127:64];
-            // s_empty_aux_lsb = keep2empty(s_axis_tkeep);
-            // s_empty_aux_msb = keep2empty(s_axis_tkeep);
             s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
             s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
-            s_tdata_next = {s_tdata_aux_lsb[127:64], s_tdata_aux_msb_2[127:64]}; // s_tdata_next = s_tdata_aux_msb_2; // s_tdata_next = s_axis_tdata_masked[127:64];
-            s_empty_next = keep2empty(s_axis_tkeep_new); // s_empty_next = keep2empty(s_axis_tkeep);
+            s_empty_next = keep2empty(s_axis_tkeep);
 
-            if (!s_axis_tvalid_aux_2 || s_axis_tlast_aux_2) begin // if (!s_axis_tvalid || s_axis_tlast) begin
+            if (!s_axis_tvalid || s_axis_tlast) begin
                 s_axis_tready_next = frame_next; // drop frame
-                frame_error_next = !s_axis_tvalid_aux_2 || s_axis_tuser[0]; // frame_error_next = !s_axis_tvalid || s_axis_tuser[0];
-                error_underflow_next = !s_axis_tvalid_aux_2; // error_underflow_next = !s_axis_tvalid;
+                frame_error_next = !s_axis_tvalid;
+                error_underflow_next = !s_axis_tvalid;
 
                 if (ENABLE_PADDING && frame_min_count_reg) begin
                     if (frame_min_count_reg > CTRL_WIDTH) begin
                         s_empty_next = 0;
                         state_next = STATE_PAD;
                     end else begin
-                        if (keep2empty(s_axis_tkeep_new) > CTRL_WIDTH-frame_min_count_reg) begin
+                        if (keep2empty(s_axis_tkeep) > CTRL_WIDTH-frame_min_count_reg) begin
                             s_empty_next = CTRL_WIDTH-frame_min_count_reg;
                         end
                         if (frame_error_next) begin
@@ -612,6 +574,59 @@ always @* begin
                 state_next = STATE_PAYLOAD;
             end
         end
+
+        STATE_PAYLOAD: begin
+            // transfer payload
+            update_crc = 1'b1;
+            s_axis_tready_next = 1'b1;
+
+            if (frame_min_count_reg > CTRL_WIDTH) begin
+                frame_min_count_next = frame_min_count_reg - CTRL_WIDTH;
+            end else begin
+                frame_min_count_next = 0;
+            end
+
+            xgmii_txd_next = {s_tdata_aux_lsb_2, s_tdata_aux_msb_3};
+            xgmii_txc_next = {CTRL_WIDTH{1'b0}};
+
+            s_tdata_aux_lsb = s_axis_tdata_masked[63:0];
+            s_tdata_aux_msb = s_axis_tdata_masked[127:64];
+            s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
+            s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
+
+            s_empty_next = keep2empty(s_axis_tkeep);
+
+            if (!s_axis_tvalid || s_axis_tlast) begin
+                s_axis_tready_next = frame_next; // drop frame
+                frame_error_next = !s_axis_tvalid;
+                error_underflow_next = !s_axis_tvalid;
+
+                if (ENABLE_PADDING && frame_min_count_reg) begin
+                    if (frame_min_count_reg > CTRL_WIDTH) begin
+                        s_empty_next = 0;
+                        state_next = STATE_PAD;
+                    end else begin
+                        if (keep2empty(s_axis_tkeep) > CTRL_WIDTH-frame_min_count_reg) begin
+                            s_empty_next = CTRL_WIDTH-frame_min_count_reg;
+                        end
+                        if (frame_error_next) begin
+                            state_next = STATE_ERR;
+                        end else begin
+                            state_next = STATE_FCS_1;
+                        end
+                    end
+                end else begin
+                    if (frame_error_next) begin
+                        state_next = STATE_ERR;
+                    end else begin
+                        state_next = STATE_FCS_1;
+                    end
+                end
+            end else begin
+                state_next = STATE_PAYLOAD;
+            end
+        end
+
         STATE_PAD: begin
             // pad frame to MIN_FRAME_LENGTH
             s_axis_tready_next = frame_next; // drop frame
@@ -650,25 +665,11 @@ always @* begin
 
             xgmii_txd_next = fcs_output_txd_0;
             xgmii_txc_next = fcs_output_txc_0;
-            
-            s_tdata_aux_lsb = s_axis_tdata_masked[63:0];
-            s_tdata_aux_msb = s_axis_tdata_masked[127:64];
-            // s_empty_aux_lsb = keep2empty(s_axis_tkeep);
-            // s_empty_aux_msb = keep2empty(s_axis_tkeep);
-            s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
-            s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
             update_crc = 1'b1;
-            /*
+
             ifg_count_next = (cfg_ifg > 8'd12 ? cfg_ifg : 8'd12) - ifg_offset + (swap_lanes_reg ? 8'd4 : 8'd0) + deficit_idle_count_reg;
-            if (s_empty_reg <= 4) begin
-                state_next = STATE_FCS_2;
-            end else begin
-                state_next = STATE_IFG;
-            end
-            */
-            ifg_count_next = (cfg_ifg > 8'd12 ? cfg_ifg : 8'd12) - ifg_offset + (swap_lanes_reg ? 8'd4 : 8'd0) + deficit_idle_count_reg;
-            if (s_empty_reg <= 12) begin // if (s_empty_reg <= 4) begin
+            if (s_empty_reg <= 12) begin
                 state_next = STATE_FCS_2;
             end else begin
                 state_next = STATE_IFG;
@@ -680,13 +681,6 @@ always @* begin
 
             xgmii_txd_next = fcs_output_txd_1;
             xgmii_txc_next = fcs_output_txc_1;
-            
-            s_tdata_aux_lsb = s_axis_tdata_masked[63:0];
-            s_tdata_aux_msb = s_axis_tdata_masked[127:64];
-            // s_empty_aux_lsb = keep2empty(s_axis_tkeep);
-            // s_empty_aux_msb = keep2empty(s_axis_tkeep);
-            s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
-            s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
             if (ENABLE_DIC) begin
                 if (ifg_count_next > 16'd7) begin /*if (ifg_count_next > 8'd7) begin*/
