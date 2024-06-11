@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "eth-mac-40g-env"
+version = "1.0"
+description = "Verilog MAC 40G"
+authors = ["joseantoniodelmoralconsuegra"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

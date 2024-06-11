@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1718135059" />
+    <testcase name="run_test_tx_001" classname="test_eth_mac_40g" file="/home/joseantonio/.cache/pypoetry/virtualenvs/eth-mac-40g-env-oy4LU25S-py3.10/lib/python3.10/site-packages/cocotb/regression.py" lineno="731" time="20.560516595840454" sim_time_ns="17945.601" ratio_time="872.8185849002708" />
+  </testsuite>
+</testsuites>
