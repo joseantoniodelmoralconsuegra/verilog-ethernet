@@ -33,12 +33,12 @@ THE SOFTWARE.
  */
 module axis_xgmii_tx_128 #
 (
-    parameter DATA_WIDTH = 128, /* Al instanciarlo en el nivel superior se cambia de 64 a 128*/
+    parameter DATA_WIDTH = 128,
     parameter KEEP_WIDTH = (DATA_WIDTH/8),
     parameter CTRL_WIDTH = (DATA_WIDTH/8),
     parameter ENABLE_PADDING = 1,
     parameter ENABLE_DIC = 1,
-    parameter MIN_FRAME_LENGTH = 64, /* Cambio de 64 a 128*/
+    parameter MIN_FRAME_LENGTH = 64,
     parameter PTP_TS_ENABLE = 0,
     parameter PTP_TS_FMT_TOD = 1,
     parameter PTP_TS_WIDTH = PTP_TS_FMT_TOD ? 96 : 64,
@@ -133,10 +133,7 @@ reg update_crc;
 reg swap_lanes_reg = 1'b0, swap_lanes_next;
 reg [63:0] swap_txd = 64'd0;
 reg [7:0] swap_txc = 8'd0;
-/*
-reg [31:0] swap_txd = 32'd0;
-reg [3:0] swap_txc = 4'd0;
-*/
+
 reg [DATA_WIDTH-1:0] s_axis_tdata_masked, s_axis_tdata_masked_crc;
 
 reg [DATA_WIDTH-1:0] s_tdata_reg = 0, s_tdata_next, s_tdata_reg_aux, s_tdata_reg_aux_2;
@@ -365,8 +362,8 @@ always @* begin
             ifg_offset = 8'd5;
         end
         4'd0: begin
-            fcs_output_txd_0 = {s_tdata_aux_lsb_2, s_tdata_aux_msb_3}; // fcs_output_txd_0 = s_tdata_reg;
-            fcs_output_txd_1 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_reg[15][31:0], s_tdata_aux_msb_2}; // fcs_output_txd_1 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_reg[7][31:0]};
+            fcs_output_txd_0 = {s_tdata_aux_lsb_2, s_tdata_aux_msb_3};
+            fcs_output_txd_1 = {{3{XGMII_IDLE}}, XGMII_TERM, ~crc_state_reg[15][31:0], s_tdata_aux_msb_2};
             fcs_output_txc_0 = 16'b0000000000000000; 
             fcs_output_txc_1 = 16'b1111000000000000; 
             ifg_offset = 8'd4;
@@ -551,7 +548,7 @@ always @* begin
             s_axis_tkeep_aux_lsb = s_axis_tkeep[7:0];
             s_axis_tkeep_aux_msb = s_axis_tkeep[15:8];
 
-            s_tdata_next = 128'd0; /*Paso se 64 a 128*/
+            s_tdata_next = 128'd0;
             s_empty_next = 0;
 
             update_crc = 1'b1;
@@ -578,7 +575,7 @@ always @* begin
 
             update_crc = 1'b1;
 
-            ifg_count_next = (cfg_ifg > 8'd12 ? cfg_ifg : 8'd12) - ifg_offset + (swap_lanes_reg ? 8'd8 : 8'd0) + deficit_idle_count_reg; // ifg_count_next = (cfg_ifg > 8'd12 ? cfg_ifg : 8'd12) - ifg_offset + (swap_lanes_reg ? 8'd4 : 8'd0) + deficit_idle_count_reg;
+            ifg_count_next = (cfg_ifg > 8'd12 ? cfg_ifg : 8'd12) - ifg_offset + (swap_lanes_reg ? 8'd8 : 8'd0) + deficit_idle_count_reg;
             if (s_empty_reg <= 12) begin
                 state_next = STATE_FCS_2;
             end else begin
@@ -680,9 +677,6 @@ always @* begin
                     state_next = STATE_IDLE;
                 end
             end
-
-            
-
         end
     endcase
 end
@@ -750,7 +744,7 @@ always @(posedge clk) begin
     crc_state_reg[3] <= crc_state_next[3];
     crc_state_reg[4] <= crc_state_next[4];
     crc_state_reg[5] <= crc_state_next[5];
-    crc_state_reg[6] <= crc_state_next[6];
+    crc_state_reg[6] <= crc_state_next[6]; 
     crc_state_reg[7] <= crc_state_next[7];
     crc_state_reg[8] <= crc_state_next[8];
     crc_state_reg[9] <= crc_state_next[9];

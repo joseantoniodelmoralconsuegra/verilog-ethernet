@@ -80,7 +80,7 @@ module axis_xgmii_rx_128 #
 
 // bus width assertions
 initial begin
-    if (DATA_WIDTH != 128) begin /*paso de 64 a 128*/
+    if (DATA_WIDTH != 128) begin
         $error("Error: Interface width must be 128");
         $finish;
     end
@@ -112,13 +112,13 @@ reg [1:0] state_reg = STATE_IDLE, state_next;
 reg reset_crc;
 
 reg lanes_swapped = 1'b0;
-reg [63:0] swap_rxd = 64'd0; /*paso de 32 a 64*/
-reg [7:0] swap_rxc = 8'd0; /*paso de 4 a 8*/
-reg [7:0] swap_rxc_term = 8'd0; /*paso de 4 a 8*/
+reg [63:0] swap_rxd = 32'd0;
+reg [7:0] swap_rxc = 8'd0;
+reg [7:0] swap_rxc_term = 8'd0;
 
 reg [DATA_WIDTH-1:0] xgmii_rxd_masked = {DATA_WIDTH{1'b0}};
 reg [CTRL_WIDTH-1:0] xgmii_term = {CTRL_WIDTH{1'b0}};
-reg [2:0] term_lane_reg = 0, term_lane_d0_reg = 0;
+reg [3:0] term_lane_reg = 0, term_lane_d0_reg = 0;
 reg term_present_reg = 1'b0;
 reg framing_error_reg = 1'b0, framing_error_d0_reg = 1'b0;
 
@@ -149,17 +149,25 @@ reg [31:0] crc_state = 32'hFFFFFFFF;
 
 wire [31:0] crc_next;
 
-wire [7:0] crc_valid;
-reg [7:0] crc_valid_save;
+wire [15:0] crc_valid;
+reg [15:0] crc_valid_save;
 
-assign crc_valid[7] = crc_next == ~32'h2144df1c;
-assign crc_valid[6] = crc_next == ~32'hc622f71d;
-assign crc_valid[5] = crc_next == ~32'hb1c2a1a3;
-assign crc_valid[4] = crc_next == ~32'h9d6cdf7e;
-assign crc_valid[3] = crc_next == ~32'h6522df69;
-assign crc_valid[2] = crc_next == ~32'he60914ae;
-assign crc_valid[1] = crc_next == ~32'he38a6876;
-assign crc_valid[0] = crc_next == ~32'h6b87b1ec;
+assign crc_valid[15] = crc_next == ~32'h2144df1c; // Complemento bit a bit: 0xDEBB20E3
+assign crc_valid[14] = crc_next == ~32'hc622f71d; // Complemento bit a bit: 0x39DD08E2
+assign crc_valid[13] = crc_next == ~32'hb1c2a1a3; // Complemento bit a bit: 0x4E3D5E5C
+assign crc_valid[12] = crc_next == ~32'h9d6cdf7e; // Complemento bit a bit: 0x62932081
+assign crc_valid[11] = crc_next == ~32'h6522df69; // Complemento bit a bit: 0x9ADDC096
+assign crc_valid[10] = crc_next == ~32'he60914ae; // Complemento bit a bit: 0x19F6EB51
+assign crc_valid[9] = crc_next == ~32'he38a6876; // Complemento bit a bit: 0x1C759789
+assign crc_valid[8] = crc_next == ~32'h6b87b1ec; // Complemento bit a bit: 0x94784E13
+assign crc_valid[7] = crc_next == ~32'h334825ed;   // crc_next == 32'hccb7da12
+assign crc_valid[6] = crc_next == ~32'h47e9a500;   // crc_next == 32'hb8165aff
+assign crc_valid[5] = crc_next == ~32'h99269a45;   // crc_next == 32'h66d965ba
+assign crc_valid[4] = crc_next == ~32'h9f4ee065;   // crc_next == 32'h60b11f9a
+assign crc_valid[3] = crc_next == ~32'ha426a8d7;   // crc_next == 32'h5bd95728
+assign crc_valid[2] = crc_next == ~32'h8172123f;   // crc_next == 32'h7e8dedc0
+assign crc_valid[1] = crc_next == ~32'h2f862ccf;   // crc_next == 32'hd079d330
+assign crc_valid[0] = crc_next == ~32'h92952aed;   // crc_next == 32'h6d6ad512
 
 reg [4+16-1:0] last_ts_reg = 0;
 reg [4+16-1:0] ts_inc_reg = 0;
@@ -180,7 +188,7 @@ lfsr #(
     .LFSR_CONFIG("GALOIS"),
     .LFSR_FEED_FORWARD(0),
     .REVERSE(1),
-    .DATA_WIDTH(128), /*cambio de 64 a 128*/
+    .DATA_WIDTH(128),
     .STYLE("AUTO")
 )
 eth_crc (
@@ -194,19 +202,11 @@ eth_crc (
 integer j;
 
 always @* begin
-    for (j = 0; j < 16; j = j + 1) begin 
-        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8]; 
-        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM); 
+    for (j = 0; j < 16; j = j + 1) begin
+        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8];
+        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM);
     end
 end
-/*
-always @* begin
-    for (j = 0; j < 8; j = j + 1) begin
-        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8]; 
-        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM); 
-    end
-end
-*/
 
 always @* begin
     state_next = STATE_IDLE;
@@ -232,6 +232,7 @@ always @* begin
                 // start condition
 
                 reset_crc = 1'b0;
+                m_axis_tvalid_next = 1'b1; //
                 state_next = STATE_PAYLOAD;
             end else begin
                 state_next = STATE_IDLE;
@@ -244,11 +245,7 @@ always @* begin
             m_axis_tvalid_next = 1'b1;
             m_axis_tlast_next = 1'b0;
             m_axis_tuser_next[0] = 1'b0;
-
-            if (PTP_TS_ENABLE) begin
-                m_axis_tuser_next[1 +: PTP_TS_WIDTH] = (!PTP_TS_FMT_TOD || ptp_ts_borrow_reg) ? ptp_ts_reg : ptp_ts_adj_reg;
-            end
-
+            
             if (framing_error_reg || framing_error_d0_reg) begin
                 // control or error characters in packet
                 m_axis_tlast_next = 1'b1;
@@ -260,16 +257,16 @@ always @* begin
                 reset_crc = 1'b1;
                 if (term_lane_reg <= 4) begin
                     // end this cycle
-                    m_axis_tkeep_next = {KEEP_WIDTH{1'b1}} >> (CTRL_WIDTH-4-term_lane_reg);
+                    m_axis_tkeep_next = {KEEP_WIDTH{1'b1}} >> (CTRL_WIDTH-12-term_lane_reg);
                     m_axis_tlast_next = 1'b1;
-                    if ((term_lane_reg == 0 && crc_valid_save[7]) ||
+                    if ((term_lane_reg == 0 && crc_valid_save[15]) ||
                         (term_lane_reg == 1 && crc_valid[0]) ||
                         (term_lane_reg == 2 && crc_valid[1]) ||
                         (term_lane_reg == 3 && crc_valid[2]) ||
                         (term_lane_reg == 4 && crc_valid[3])) begin
                         // CRC valid
                     end else begin
-                        m_axis_tuser_next[0] = 1'b1;
+                        // m_axis_tuser_next[0] = 1'b1;
                         error_bad_frame_next = 1'b1;
                         error_bad_fcs_next = 1'b1;
                     end
@@ -294,10 +291,18 @@ always @* begin
 
             if ((term_lane_d0_reg == 5 && crc_valid_save[4]) ||
                 (term_lane_d0_reg == 6 && crc_valid_save[5]) ||
-                (term_lane_d0_reg == 7 && crc_valid_save[6])) begin
+                (term_lane_d0_reg == 7 && crc_valid_save[6]) ||
+                (term_lane_d0_reg == 8 && crc_valid_save[7]) ||
+                (term_lane_d0_reg == 9 && crc_valid_save[8]) ||
+                (term_lane_d0_reg == 10 && crc_valid_save[9]) ||
+                (term_lane_d0_reg == 11 && crc_valid_save[10]) ||
+                (term_lane_d0_reg == 12 && crc_valid_save[11]) ||
+                (term_lane_d0_reg == 13 && crc_valid_save[12]) ||
+                (term_lane_d0_reg == 14 && crc_valid_save[13]) ||
+                (term_lane_d0_reg == 15 && crc_valid_save[14])) begin
                 // CRC valid
             end else begin
-                m_axis_tuser_next[0] = 1'b1;
+                // m_axis_tuser_next[0] = 1'b1;
                 error_bad_frame_next = 1'b1;
                 error_bad_fcs_next = 1'b1;
             end
@@ -329,35 +334,27 @@ always @(posedge clk) begin
     error_bad_frame_reg <= error_bad_frame_next;
     error_bad_fcs_reg <= error_bad_fcs_next;
 
-    swap_rxd <= xgmii_rxd_masked[127:64]; /*cambio de 63:32 a 127:64*/
-    swap_rxc <= xgmii_rxc[15:8]; /*cambio de 7:4 a 15:8*/
-    swap_rxc_term <= xgmii_term[15:8]; /*cambio de 7:4 a 15:8*/
+    swap_rxd <= xgmii_rxd_masked[127:64]; 
+    swap_rxc <= xgmii_rxc[15:8];
+    swap_rxc_term <= xgmii_term[15:8];
 
     xgmii_start_swap <= 1'b0;
     xgmii_start_d0 <= xgmii_start_swap;
 
-    if (PTP_TS_ENABLE && PTP_TS_FMT_TOD) begin
-        // ns field rollover
-        ptp_ts_adj_reg[15:0] <= ptp_ts_reg[15:0];
-        {ptp_ts_borrow_reg, ptp_ts_adj_reg[45:16]} <= $signed({1'b0, ptp_ts_reg[45:16]}) - $signed(31'd1000000000);
-        ptp_ts_adj_reg[47:46] <= 0;
-        ptp_ts_adj_reg[95:48] <= ptp_ts_reg[95:48] + 1;
-    end
-
     // lane swapping and termination character detection
     if (lanes_swapped) begin
-        xgmii_rxd_d0 <= {xgmii_rxd_masked[63:0], swap_rxd}; /*cambio de 31:0 a 63:0*/
-        xgmii_rxc_d0 <= {xgmii_rxc[7:0], swap_rxc}; /*cambio de 3:0 a 7:0*/
+        xgmii_rxd_d0 <= {xgmii_rxd_masked[63:0], swap_rxd};
+        xgmii_rxc_d0 <= {xgmii_rxc[7:0], swap_rxc};
 
         term_lane_reg <= 0;
         term_present_reg <= 1'b0;
-        framing_error_reg <= {xgmii_rxc[7:0], swap_rxc} != 0; /*cambio de 3:0 a 7:0*/
+        framing_error_reg <= {xgmii_rxc[7:0], swap_rxc} != 0;
 
         for (i = CTRL_WIDTH-1; i >= 0; i = i - 1) begin
-            if ({xgmii_term[7:0], swap_rxc_term} & (1 << i)) begin /*cambio de 3:0 a 7:0*/
+            if ({xgmii_term[3:0], swap_rxc_term} & (1 << i)) begin
                 term_lane_reg <= i;
                 term_present_reg <= 1'b1;
-                framing_error_reg <= ({xgmii_rxc[7:0], swap_rxc} & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0; /*cambio de 3:0 a 7:0*/
+                framing_error_reg <= ({xgmii_rxc[7:0], swap_rxc} & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0;
                 lanes_swapped <= 1'b0;
             end
         end
@@ -370,7 +367,7 @@ always @(posedge clk) begin
         framing_error_reg <= xgmii_rxc != 0;
 
         for (i = CTRL_WIDTH-1; i >= 0; i = i - 1) begin
-            if (xgmii_rxc[i] && (xgmii_rxd[i*8 +: 8] == XGMII_TERM)) begin 
+            if (xgmii_rxc[i] && (xgmii_rxd[i*8 +: 8] == XGMII_TERM)) begin
                 term_lane_reg <= i;
                 term_present_reg <= 1'b1;
                 framing_error_reg <= (xgmii_rxc & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0;
@@ -388,31 +385,24 @@ always @(posedge clk) begin
         term_lane_reg <= 0;
         term_present_reg <= 1'b0;
         framing_error_reg <= xgmii_rxc[7:1] != 0;
-    end else if (xgmii_rxc[4] && xgmii_rxd[39:32] == XGMII_START) begin
+    end else if (xgmii_rxc[8] && xgmii_rxd[71:64] == XGMII_START) begin
         lanes_swapped <= 1'b1;
 
         xgmii_start_swap <= 1'b1;
 
         term_lane_reg <= 0;
         term_present_reg <= 1'b0;
-        framing_error_reg <= xgmii_rxc[7:5] != 0;
+        framing_error_reg <= xgmii_rxc[15:8] != 0;
     end
 
     // capture timestamps
     if (xgmii_start_swap) begin
         start_packet_reg <= 2'b10;
-        if (PTP_TS_FMT_TOD) begin
-            ptp_ts_reg[45:0] <= ptp_ts[45:0] + (ts_inc_reg >> 1);
-            ptp_ts_reg[95:48] <= ptp_ts[95:48];
-        end else begin
-            ptp_ts_reg <= ptp_ts + (ts_inc_reg >> 1);
-        end
     end
 
     if (xgmii_start_d0) begin
         if (!lanes_swapped) begin
             start_packet_reg <= 2'b01;
-            ptp_ts_reg <= ptp_ts;
         end
     end
 
