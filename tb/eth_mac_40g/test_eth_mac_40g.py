@@ -702,7 +702,7 @@ def size_list():
     # return [131]
 
     # return [116]
-    return list(range(116, 133)) 
+    return list(range(116, 132)) 
 
 
 def incrementing_payload(length):

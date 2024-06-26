@@ -351,7 +351,7 @@ always @(posedge clk) begin
         framing_error_reg <= {xgmii_rxc[7:0], swap_rxc} != 0;
 
         for (i = CTRL_WIDTH-1; i >= 0; i = i - 1) begin
-            if ({xgmii_term[3:0], swap_rxc_term} & (1 << i)) begin
+            if ({xgmii_term[7:0], swap_rxc_term} & (1 << i)) begin // if ({xgmii_term[3:0], swap_rxc_term} & (1 << i)) begin
                 term_lane_reg <= i;
                 term_present_reg <= 1'b1;
                 framing_error_reg <= ({xgmii_rxc[7:0], swap_rxc} & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0;
@@ -445,3 +445,4 @@ end
 endmodule
 
 `resetall
+

@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1719425423" />
-    <testcase name="run_test_rx_001" classname="test_eth_mac_40g" file="/home/joseantonio/.cache/pypoetry/virtualenvs/eth-mac-40g-env-oy4LU25S-py3.10/lib/python3.10/site-packages/cocotb/regression.py" lineno="731" time="14.315469026565552" sim_time_ns="2176.001" ratio_time="152.00347232507326" />
+    <property name="random_seed" value="1719441705" />
+    <testcase name="run_test_rx_001" classname="test_eth_mac_40g" file="/home/joseantonio/.cache/pypoetry/virtualenvs/eth-mac-40g-env-oy4LU25S-py3.10/lib/python3.10/site-packages/cocotb/regression.py" lineno="731" time="14.320898056030273" sim_time_ns="2048.001" ratio_time="143.00786109832154" />
   </testsuite>
 </testsuites>
