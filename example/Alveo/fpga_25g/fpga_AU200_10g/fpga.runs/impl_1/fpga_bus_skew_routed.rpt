@@ -1,0 +1,450 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date              : Tue Jul  2 00:10:19 2024
+| Host              : joseantonio-Legion-5-15IAH7H running 64-bit Ubuntu 22.04.4 LTS
+| Command           : report_bus_skew -warn_on_violation -file fpga_bus_skew_routed.rpt -pb fpga_bus_skew_routed.pb -rpx fpga_bus_skew_routed.rpx
+| Design            : fpga
+| Device            : xcu200-fsgd2104
+| Speed File        : -2  PRODUCTION 1.28 03-30-2022
+| Design State      : Routed
+| Temperature Grade : E
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+Table of Contents
+-----------------
+1. Bus Skew Report Summary
+2. Bus Skew Report Per Constraint
+
+1. Bus Skew Report Summary
+--------------------------
+
+Id  Position  From                            To                              Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+--  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
+1   145       [get_cells {{core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}]
+                                              [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}]
+                                                                              Slow              6.400       1.039      5.361
+2   147       [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}]
+                                              [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}]
+                                                                              Slow              6.400       0.470      5.930
+3   152       [get_cells {{core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}]
+                                              [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}]
+                                                                              Slow              6.400       0.652      5.748
+4   154       [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}]
+                                              [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}]
+                                                                              Slow              6.400       0.730      5.670
+
+
+2. Bus Skew Report Per Constraint
+---------------------------------
+
+Id: 1
+set_bus_skew -from [get_cells {{core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}] -to [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}] 6.400
+Requirement: 6.400ns
+Endpoints: 10
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+gtwiz_userclk_tx_srcclk_out[0]
+                      gtwiz_userclk_rx_srcclk_out[0]
+                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[3]/D
+                                                                                                            Slow         1.039      5.361
+
+
+Slack (MET) :             5.361ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[9]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_rx_srcclk_out[0])
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_rx_srcclk_out[0])
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            6.400ns
+  Endpoint Relative Delay:    1.575ns
+  Reference Relative Delay:   0.230ns
+  Relative CRPR:              0.307ns
+  Actual Bus Skew:            1.039ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        2.023     2.238    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/CLK
+    SLICE_X159Y730       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X159Y730       FDRE (Prop_CFF2_SLICEL_C_Q)
+                                                      0.080     2.318 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[9]/Q
+                         net (fo=4, routed)           0.910     3.228    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[9]
+    SLICE_X158Y728       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_rx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/RXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_srcclk_out[0]
+    BUFG_GT_X1Y294       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gen_gtwiz_userclk_rx_main.bufg_gt_usrclk_inst/O
+    X5Y11 (CLOCK_ROOT)   net (fo=755, routed)         1.435     1.627    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/s_clk
+    SLICE_X158Y728       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/C
+                         clock pessimism              0.000     1.627    
+    SLICE_X158Y728       FDRE (Setup_CFF2_SLICEM_C_D)
+                                                      0.025     1.652    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]
+  -------------------------------------------------------------------
+                         data arrival                           3.228    
+                         clock arrival                          1.652    
+  -------------------------------------------------------------------
+                         relative delay                         1.575    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.779     1.971    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/CLK
+    SLICE_X160Y731       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X160Y731       FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.059     2.030 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[3]/Q
+                         net (fo=1, routed)           0.096     2.126    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg_n_0_[3]
+    SLICE_X160Y731       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_rx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/RXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_srcclk_out[0]
+    BUFG_GT_X1Y294       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gen_gtwiz_userclk_rx_main.bufg_gt_usrclk_inst/O
+    X5Y11 (CLOCK_ROOT)   net (fo=755, routed)         1.619     1.834    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/s_clk
+    SLICE_X160Y731       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[3]/C
+                         clock pessimism              0.000     1.834    
+    SLICE_X160Y731       FDRE (Hold_CFF2_SLICEL_C_D)
+                                                      0.062     1.896    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[3]
+  -------------------------------------------------------------------
+                         data arrival                           2.126    
+                         clock arrival                          1.896    
+  -------------------------------------------------------------------
+                         relative delay                         0.230    
+
+
+
+Id: 2
+set_bus_skew -from [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}] -to [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}] 6.400
+Requirement: 6.400ns
+Endpoints: 10
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+gtwiz_userclk_rx_srcclk_out[0]
+                      gtwiz_userclk_tx_srcclk_out[0]
+                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[2]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
+                                                                                                            Slow         0.470      5.930
+
+
+Slack (MET) :             5.930ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_rx_srcclk_out[0])
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_rx_srcclk_out[0])
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            6.400ns
+  Endpoint Relative Delay:    0.354ns
+  Reference Relative Delay:  -0.478ns
+  Relative CRPR:              0.363ns
+  Actual Bus Skew:            0.470ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_rx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/RXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_srcclk_out[0]
+    BUFG_GT_X1Y294       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gen_gtwiz_userclk_rx_main.bufg_gt_usrclk_inst/O
+    X5Y11 (CLOCK_ROOT)   net (fo=755, routed)         1.620     1.835    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/s_clk
+    SLICE_X160Y729       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X160Y729       FDRE (Prop_AFF2_SLICEL_C_Q)
+                                                      0.081     1.916 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[2]/Q
+                         net (fo=1, routed)           0.444     2.360    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[2]
+    SLICE_X160Y726       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.789     1.981    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/CLK
+    SLICE_X160Y726       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[2]/C
+                         clock pessimism              0.000     1.981    
+    SLICE_X160Y726       FDRE (Setup_BFF_SLICEL_C_D)
+                                                      0.025     2.006    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[2]
+  -------------------------------------------------------------------
+                         data arrival                           2.360    
+                         clock arrival                          2.006    
+  -------------------------------------------------------------------
+                         relative delay                         0.354    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_rx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/RXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_srcclk_out[0]
+    BUFG_GT_X1Y294       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gen_gtwiz_userclk_rx_main.bufg_gt_usrclk_inst/O
+    X5Y11 (CLOCK_ROOT)   net (fo=755, routed)         1.428     1.620    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/s_clk
+    SLICE_X159Y727       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X159Y727       FDRE (Prop_DFF2_SLICEL_C_Q)
+                                                      0.061     1.681 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/Q
+                         net (fo=1, routed)           0.128     1.809    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[4]
+    SLICE_X160Y729       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        2.010     2.225    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/CLK
+    SLICE_X160Y729       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/C
+                         clock pessimism              0.000     2.225    
+    SLICE_X160Y729       FDRE (Hold_EFF2_SLICEL_C_D)
+                                                      0.062     2.287    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]
+  -------------------------------------------------------------------
+                         data arrival                           1.809    
+                         clock arrival                          2.287    
+  -------------------------------------------------------------------
+                         relative delay                        -0.478    
+
+
+
+Id: 3
+set_bus_skew -from [get_cells {{core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}] -to [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}] 6.400
+Requirement: 6.400ns
+Endpoints: 10
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+gtwiz_userclk_tx_srcclk_out[0]
+                      gtwiz_userclk_tx_srcclk_out[0]
+                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[2]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[6]/D
+                                                                                                            Slow         0.652      5.748
+
+
+Slack (MET) :             5.748ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            6.400ns
+  Endpoint Relative Delay:    0.643ns
+  Reference Relative Delay:  -0.009ns
+  Relative CRPR:              0.000ns
+  Actual Bus Skew:            0.652ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.949     2.164    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X155Y711       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X155Y711       FDRE (Prop_CFF_SLICEL_C_Q)
+                                                      0.079     2.243 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[2]/Q
+                         net (fo=1, routed)           0.492     2.735    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_0[2]
+    SLICE_X156Y711       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.710     1.902    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X156Y711       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[2]/C
+                         clock pessimism              0.165     2.067    
+    SLICE_X156Y711       FDRE (Setup_DFF2_SLICEM_C_D)
+                                                      0.025     2.092    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[2]
+  -------------------------------------------------------------------
+                         data arrival                           2.735    
+                         clock arrival                          2.092    
+  -------------------------------------------------------------------
+                         relative delay                         0.643    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.703     1.895    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X156Y708       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X156Y708       FDRE (Prop_DFF_SLICEM_C_Q)
+                                                      0.058     1.953 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[6]/Q
+                         net (fo=1, routed)           0.076     2.029    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_0[6]
+    SLICE_X155Y708       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.926     2.141    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X155Y708       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[6]/C
+                         clock pessimism             -0.165     1.976    
+    SLICE_X155Y708       FDRE (Hold_DFF2_SLICEL_C_D)
+                                                      0.062     2.038    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[6]
+  -------------------------------------------------------------------
+                         data arrival                           2.029    
+                         clock arrival                          2.038    
+  -------------------------------------------------------------------
+                         relative delay                        -0.009    
+
+
+
+Id: 4
+set_bus_skew -from [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}] -to [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}] 6.400
+Requirement: 6.400ns
+Endpoints: 10
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+gtwiz_userclk_tx_srcclk_out[0]
+                      gtwiz_userclk_tx_srcclk_out[0]
+                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[6]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
+                                                                                                            Slow         0.730      5.670
+
+
+Slack (MET) :             5.670ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by gtwiz_userclk_tx_srcclk_out[0])
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            6.400ns
+  Endpoint Relative Delay:    0.881ns
+  Reference Relative Delay:   0.075ns
+  Relative CRPR:              0.076ns
+  Actual Bus Skew:            0.730ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.995     2.210    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X154Y726       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X154Y726       FDRE (Prop_HFF2_SLICEL_C_Q)
+                                                      0.080     2.290 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[6]/Q
+                         net (fo=1, routed)           0.635     2.925    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[6]
+    SLICE_X156Y709       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.708     1.900    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X156Y709       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[6]/C
+                         clock pessimism              0.119     2.019    
+    SLICE_X156Y709       FDRE (Setup_FFF2_SLICEM_C_D)
+                                                      0.025     2.044    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[6]
+  -------------------------------------------------------------------
+                         data arrival                           2.925    
+                         clock arrival                          2.044    
+  -------------------------------------------------------------------
+                         relative delay                         0.881    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.078     0.078    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.114     0.192 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.702     1.894    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X153Y709       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X153Y709       FDRE (Prop_DFF2_SLICEM_C_Q)
+                                                      0.061     1.955 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/Q
+                         net (fo=1, routed)           0.167     2.122    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[8]
+    SLICE_X156Y709       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gtwiz_userclk_tx_srcclk_out[0] rise edge)
+                                                      0.000     0.000 r  
+    GTYE4_CHANNEL_X1Y48  GTYE4_CHANNEL                0.000     0.000 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK
+                         net (fo=2, routed)           0.085     0.085    qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_srcclk_out[0]
+    BUFG_GT_X1Y291       BUFG_GT (Prop_BUFG_GT_I_O)
+                                                      0.130     0.215 r  qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst/O
+    X4Y11 (CLOCK_ROOT)   net (fo=4727, routed)        1.935     2.150    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/CLK
+    SLICE_X156Y709       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/C
+                         clock pessimism             -0.165     1.985    
+    SLICE_X156Y709       FDRE (Hold_GFF2_SLICEM_C_D)
+                                                      0.062     2.047    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]
+  -------------------------------------------------------------------
+                         data arrival                           2.122    
+                         clock arrival                          2.047    
+  -------------------------------------------------------------------
+                         relative delay                         0.075    
+
+
+

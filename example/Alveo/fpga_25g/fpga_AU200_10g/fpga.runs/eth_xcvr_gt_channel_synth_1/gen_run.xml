@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="eth_xcvr_gt_channel_synth_1" LaunchPart="xcu200-fsgd2104-2-e" LaunchTime="1716242970">
-  <File Type="VDS-TIMING-PB" Name="eth_xcvr_gt_channel_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="eth_xcvr_gt_channel_timing_summary_synth.rpt"/>
+<GenRun Id="eth_xcvr_gt_channel_synth_1" LaunchPart="xcu200-fsgd2104-2-e" LaunchTime="1719871343">
   <File Type="RDS-RDS" Name="eth_xcvr_gt_channel.vds"/>
   <File Type="REPORTS-TCL" Name="eth_xcvr_gt_channel_reports.tcl"/>
   <File Type="PA-TCL" Name="eth_xcvr_gt_channel.tcl"/>
   <File Type="RDS-DCP" Name="eth_xcvr_gt_channel.dcp"/>
-  <File Type="RDS-PROPCONSTRS" Name="eth_xcvr_gt_channel_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="eth_xcvr_gt_channel_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="eth_xcvr_gt_channel_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/eth_xcvr_gt_channel" RelGenDir="$PGENDIR/eth_xcvr_gt_channel">
@@ -42,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

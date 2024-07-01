@@ -19,44 +19,44 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu200'
 INFO: [Device 21-403] Loading part xcu200-fsgd2104-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21427
+INFO: [Synth 8-7075] Helper process launched with PID 5853
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2774.133 ; gain = 397.715 ; free physical = 180 ; free virtual = 5193
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2775.129 ; gain = 397.715 ; free physical = 5305 ; free virtual = 9985
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.v:53]
-INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtwizard_top' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_top.v:173]
-INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtwizard_gtye4' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_gtye4.v:141]
-INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtye4_channel_wrapper' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtye4_channel_wrapper.v:56]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_channel' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/gtwizard_ultrascale_v1_7_gtye4_channel.v:53]
+INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.v:53]
+INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtwizard_top' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_top.v:173]
+INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtwizard_gtye4' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_gtye4.v:141]
+INFO: [Synth 8-6157] synthesizing module 'eth_xcvr_gt_channel_gtye4_channel_wrapper' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtye4_channel_wrapper.v:56]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_channel' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/gtwizard_ultrascale_v1_7_gtye4_channel.v:53]
 INFO: [Synth 8-6157] synthesizing module 'GTYE4_CHANNEL' [/tools/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:53671]
 INFO: [Synth 8-6155] done synthesizing module 'GTYE4_CHANNEL' (0#1) [/tools/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:53671]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_channel' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/gtwizard_ultrascale_v1_7_gtye4_channel.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtye4_channel_wrapper' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtye4_channel_wrapper.v:56]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_delay_powergood' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:53]
-INFO: [Synth 8-226] default block is never used [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:136]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_delay_powergood' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_tx' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_tx.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_channel' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/gtwizard_ultrascale_v1_7_gtye4_channel.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtye4_channel_wrapper' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtye4_channel_wrapper.v:56]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_delay_powergood' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:53]
+INFO: [Synth 8-226] default block is never used [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:136]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtye4_delay_powergood' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtye4_delay_powergood.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_tx' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_tx.v:53]
 INFO: [Synth 8-6157] synthesizing module 'BUFG_GT' [/tools/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:2127]
 INFO: [Synth 8-6155] done synthesizing module 'BUFG_GT' (0#1) [/tools/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:2127]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_tx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_tx.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_rx' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_rx.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_rx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_rx.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_bit_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_bit_sync.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_bit_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_bit_sync.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_sync.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_sync.v:53]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:162]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_inv_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_inv_sync.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_inv_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_inv_sync.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_tx' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_tx.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_tx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_tx.v:53]
-INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_rx.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_rx.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtwizard_gtye4' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_gtye4.v:141]
-INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtwizard_top' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_top.v:173]
-INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_tx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_tx.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_rx' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_rx.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userclk_rx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userclk_rx.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_bit_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_bit_sync.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_bit_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_bit_sync.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_sync.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_sync.v:53]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:162]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_inv_synchronizer' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_inv_sync.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_reset_inv_synchronizer' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_reset_inv_sync.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_reset.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_tx' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_tx.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_tx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_tx.v:53]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx' [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_rx.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/hdl/gtwizard_ultrascale_v1_7_gtwiz_userdata_rx.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtwizard_gtye4' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_gtye4.v:141]
+INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel_gtwizard_top' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_gtwizard_top.v:173]
+INFO: [Synth 8-6155] done synthesizing module 'eth_xcvr_gt_channel' (0#1) [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.v:53]
 WARNING: [Synth 8-7129] Port rxdata_in[127] in module gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rxdata_in[126] in module gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rxdata_in[125] in module gtwizard_ultrascale_v1_7_17_gtwiz_userdata_rx is either unconnected or has no load
@@ -159,40 +159,40 @@ WARNING: [Synth 8-7129] Port gtwiz_buffbypass_tx_reset_in[0] in module eth_xcvr_
 WARNING: [Synth 8-7129] Port gtwiz_buffbypass_tx_start_user_in[0] in module eth_xcvr_gt_channel_gtwizard_gtye4 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2869.070 ; gain = 492.652 ; free physical = 153 ; free virtual = 4960
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2869.098 ; gain = 491.684 ; free physical = 5071 ; free virtual = 9754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2875.008 ; gain = 498.590 ; free physical = 176 ; free virtual = 4960
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2883.941 ; gain = 506.527 ; free physical = 5067 ; free virtual = 9753
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2875.008 ; gain = 498.590 ; free physical = 176 ; free virtual = 4960
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2883.941 ; gain = 506.527 ; free physical = 5067 ; free virtual = 9753
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2888.945 ; gain = 0.000 ; free physical = 168 ; free virtual = 4949
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2897.879 ; gain = 0.000 ; free physical = 5055 ; free virtual = 9740
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc] for cell 'inst'
-Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc] for cell 'inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_xcvr_gt_channel_propImpl.xdc].
+Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_xcvr_gt_channel_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/eth_xcvr_gt_channel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3008.695 ; gain = 0.000 ; free physical = 183 ; free virtual = 4907
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3009.629 ; gain = 0.000 ; free physical = 4979 ; free virtual = 9682
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3008.730 ; gain = 0.000 ; free physical = 182 ; free virtual = 4906
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3009.664 ; gain = 0.000 ; free physical = 4978 ; free virtual = 9681
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3008.730 ; gain = 632.312 ; free physical = 186 ; free virtual = 4907
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3009.664 ; gain = 632.250 ; free physical = 4972 ; free virtual = 9675
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -200,14 +200,14 @@ Start Loading Part and Timing Information
 Loading part: xcu200-fsgd2104-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3008.730 ; gain = 632.312 ; free physical = 186 ; free virtual = 4907
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3009.664 ; gain = 632.250 ; free physical = 4972 ; free virtual = 9675
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc, line 9).
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3008.730 ; gain = 632.312 ; free physical = 186 ; free virtual = 4907
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3009.664 ; gain = 632.250 ; free physical = 4972 ; free virtual = 9675
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'sm_reset_all_reg' in module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset'
 INFO: [Synth 8-802] inferred FSM for state register 'sm_reset_tx_reg' in module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset'
@@ -251,7 +251,7 @@ ST_RESET_ALL_TX_PLL_WAIT |                              010 |                   
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'sm_reset_all_reg' using encoding 'sequential' in module 'gtwizard_ultrascale_v1_7_17_gtwiz_reset'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3008.730 ; gain = 632.312 ; free physical = 184 ; free virtual = 4905
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 3009.664 ; gain = 632.250 ; free physical = 4969 ; free virtual = 9674
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -291,25 +291,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 3008.730 ; gain = 632.312 ; free physical = 181 ; free virtual = 4896
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 3009.664 ; gain = 632.250 ; free physical = 4969 ; free virtual = 9676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3256.695 ; gain = 880.277 ; free physical = 193 ; free virtual = 4353
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 3256.660 ; gain = 879.246 ; free physical = 4356 ; free virtual = 9114
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 168 ; free virtual = 4274
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4280 ; free virtual = 9038
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 168 ; free virtual = 4274
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4280 ; free virtual = 9038
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -327,37 +327,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 162 ; free virtual = 4261
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4567 ; free virtual = 9326
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 162 ; free virtual = 4261
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4566 ; free virtual = 9325
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 356 ; free virtual = 4449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 407 ; free virtual = 4500
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 449 ; free virtual = 4544
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 449 ; free virtual = 4544
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -388,20 +388,20 @@ Report Cell Usage:
 |13    |FDSE          |     6|
 +------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.734 ; gain = 922.316 ; free physical = 449 ; free virtual = 4544
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.691 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 534 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 3298.734 ; gain = 788.594 ; free physical = 449 ; free virtual = 4544
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.742 ; gain = 922.316 ; free physical = 449 ; free virtual = 4544
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3298.691 ; gain = 795.555 ; free physical = 4564 ; free virtual = 9323
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 3298.699 ; gain = 921.277 ; free physical = 4564 ; free virtual = 9323
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3298.742 ; gain = 0.000 ; free physical = 733 ; free virtual = 4828
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3298.699 ; gain = 0.000 ; free physical = 4850 ; free virtual = 9609
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-441] Inserted BUFG_GT_SYNC inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/BUFG_GT_SYNC for BUFG_GT inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gen_gtwiz_userclk_rx_main.bufg_gt_usrclk_inst
 INFO: [Opt 31-441] Inserted BUFG_GT_SYNC inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[29].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/BUFG_GT_SYNC_1 for BUFG_GT inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gen_gtwiz_userclk_tx_main.bufg_gt_usrclk_inst
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3397.602 ; gain = 0.000 ; free physical = 634 ; free virtual = 4731
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3398.410 ; gain = 0.000 ; free physical = 4755 ; free virtual = 9514
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -409,14 +409,14 @@ Synth Design complete | Checksum: 810cbd8e
 INFO: [Common 17-83] Releasing license: Synthesis
 61 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:21 . Memory (MB): peak = 3397.637 ; gain = 2061.312 ; free physical = 615 ; free virtual = 4715
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2489.432; main = 2489.432; forked = 332.951
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3973.406; main = 3397.605; forked = 996.723
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3421.613 ; gain = 0.000 ; free physical = 625 ; free virtual = 4726
-INFO: [Common 17-1381] The checkpoint '/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/eth_xcvr_gt_channel.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:25 . Memory (MB): peak = 3398.445 ; gain = 2062.094 ; free physical = 4750 ; free virtual = 9511
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2532.959; main = 2532.959; forked = 344.927
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3974.754; main = 3398.414; forked = 997.137
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3422.422 ; gain = 0.000 ; free physical = 4750 ; free virtual = 9511
+INFO: [Common 17-1381] The checkpoint '/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/eth_xcvr_gt_channel.dcp' has been generated.
 INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP eth_xcvr_gt_channel, cache-ID = 673e05b136454b0d
 INFO: [Coretcl 2-1174] Renamed 27 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3421.613 ; gain = 0.000 ; free physical = 616 ; free virtual = 4720
-INFO: [Common 17-1381] The checkpoint '/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/eth_xcvr_gt_channel.dcp' has been generated.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3422.422 ; gain = 0.000 ; free physical = 4737 ; free virtual = 9501
+INFO: [Common 17-1381] The checkpoint '/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/eth_xcvr_gt_channel_synth_1/eth_xcvr_gt_channel.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file eth_xcvr_gt_channel_utilization_synth.rpt -pb eth_xcvr_gt_channel_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 21 00:09:58 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  2 00:02:56 2024...

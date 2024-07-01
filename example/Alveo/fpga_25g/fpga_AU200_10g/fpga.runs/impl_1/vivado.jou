@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Tue Jul  2 00:07:08 2024
+# Process ID: 6506
+# Current directory: /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/impl_1
+# Command line: vivado -log fpga.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fpga.tcl -notrace
+# Log file: /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/impl_1/fpga.vdi
+# Journal file: /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/impl_1/vivado.jou
+# Running On: joseantonio-Legion-5-15IAH7H, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 14, Host memory: 16475 MB
+#-----------------------------------------------------------
+source fpga.tcl -notrace

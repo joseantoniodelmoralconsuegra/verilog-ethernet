@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1/fpga.tcl"
+  variable script "/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1/fpga.tcl"
   variable category "vivado_synth"
 }
 
@@ -77,66 +77,66 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.cache/wt [current_project]
-set_property parent.project_path /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.xpr [current_project]
+set_property webtalk.parent_dir /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.cache/wt [current_project]
+set_property parent.project_path /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.cache/ip [current_project]
+set_property ip_output_repo /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/arbiter.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_cache.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_eth_rx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_eth_tx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_async_fifo.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_fifo.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/axis_xgmii_rx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/axis_xgmii_tx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/rtl/debounce_switch.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_arb_mux.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_axis_rx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_axis_tx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_mac_10g.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_mac_10g_fifo.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_ber_mon.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_frame_sync.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_if.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_watchdog.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_tx.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_tx_if.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/rtl/eth_xcvr_phy_quad_wrapper.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/rtl/eth_xcvr_phy_wrapper.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/rtl/fpga_core.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_arb_mux.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_complete_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_eth_rx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_eth_tx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/priority_encoder.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/sync_reset.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_checksum_gen_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_complete_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_ip_rx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_ip_tx_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/xgmii_baser_dec_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/xgmii_baser_enc_64.v
-  /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/rtl/fpga_au200.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/arbiter.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_cache.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_eth_rx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/arp_eth_tx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_async_fifo.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/axis_fifo.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/axis_xgmii_rx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/axis_xgmii_tx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/rtl/debounce_switch.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_arb_mux.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_axis_rx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_axis_tx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_mac_10g.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_mac_10g_fifo.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_ber_mon.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_frame_sync.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_if.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_rx_watchdog.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_tx.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/eth_phy_10g_tx_if.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/rtl/eth_xcvr_phy_quad_wrapper.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/rtl/eth_xcvr_phy_wrapper.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/rtl/fpga_core.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_arb_mux.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_complete_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_eth_rx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/ip_eth_tx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/priority_encoder.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/rtl/sync_reset.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_checksum_gen_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_complete_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_ip_rx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/udp_ip_tx_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/xgmii_baser_dec_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/xgmii_baser_enc_64.v
+  /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/rtl/fpga_au200.v
 }
-read_ip -quiet /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.srcs/sources_1/ip/eth_xcvr_gt_full/eth_xcvr_gt_full.xci
-set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_full/synth/eth_xcvr_gt_full_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_full/synth/eth_xcvr_gt_full.xdc]
+read_ip -quiet /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.srcs/sources_1/ip/eth_xcvr_gt_full/eth_xcvr_gt_full.xci
+set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_full/synth/eth_xcvr_gt_full_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_full/synth/eth_xcvr_gt_full.xdc]
 
-read_ip -quiet /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.srcs/sources_1/ip/eth_xcvr_gt_channel/eth_xcvr_gt_channel.xci
-set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc]
+read_ip -quiet /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.srcs/sources_1/ip/eth_xcvr_gt_channel/eth_xcvr_gt_channel.xci
+set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -147,17 +147,17 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc
-set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc]
+read_xdc /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc
+set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc]
 
-read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl
-set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl
+set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl]
 
-read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
-set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
+set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
 
-read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
-set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+read_xdc -unmanaged /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
+set_property used_in_implementation false [get_files /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

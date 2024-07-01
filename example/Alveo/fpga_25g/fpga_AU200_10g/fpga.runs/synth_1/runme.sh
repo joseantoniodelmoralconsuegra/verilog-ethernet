@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1'
+HD_PWD='/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

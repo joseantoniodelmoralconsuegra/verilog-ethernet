@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-// Date        : Tue May 21 00:09:58 2024
+// Date        : Tue Jul  2 00:02:56 2024
 // Host        : joseantonio-Legion-5-15IAH7H running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
-//               /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/eth_xcvr_gt_channel_sim_netlist.v
+//               /home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/eth_xcvr_gt_channel_sim_netlist.v
 // Design      : eth_xcvr_gt_channel
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

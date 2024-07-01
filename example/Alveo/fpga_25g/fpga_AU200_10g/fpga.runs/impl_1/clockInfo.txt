@@ -1,0 +1,150 @@
+-------------------------------------
+| Tool Version : Vivado v.2023.2
+| Date         : Tue Jul  2 00:07:57 2024
+| Host         : joseantonio-Legion-5-15IAH7H
+| Design       : design_1
+| Device       : xcu200-fsgd2104-2-E-
+-------------------------------------
+
+For more information on clockInfo.txt clock routing debug file see https://support.xilinx.com/s/article/000035660?language=en_US
+
+***********************
+Running Pre-CRP Checker
+***********************
+Number of global clocks: 19
+	Number of BUFGCE: 2
+	Number of BUFGCE_HDIO: 0
+	Number of BUFG_CTRL: 0
+	Number of BUFGCE_DIV: 0
+	Number of BUFG_GT: 17
+	Number of BUFG_PS: 0
+	Number of BUFG_FABRIC: 0
+	Running suboptimal placement checker for 17 BUFG_GT clocks (and their loads)...
+		No sub-optimality found
+	Running suboptimal placement checker for 18 clocks (and their loads) which do not have the CLOCK_LOW_FANOUT property but have a fanout less than 2000...
+		No sub-optimality found
+Pre-CRP Checker took 0 secs
+
+********************************
+Clock Net Route Info (CRP Input)
+********************************
+Clock 1: qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((4, 12), (5, 12))
+
+Clock 2: clk_125mhz_int
+	Clock source type: BUFGCE
+	Clock source region: X2Y9
+	initial rect ((2, 9), (5, 12))
+
+Clock 3: qsfp0_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((4, 12), (5, 12))
+
+Clock 4: qsfp1_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 5: qsfp1_phy_inst/phy4.eth_xcvr_phy_4/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 6: qsfp1_phy_inst/phy2.eth_xcvr_phy_2/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 7: qsfp1_phy_inst/phy3.eth_xcvr_phy_3/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 8: qsfp0_phy_inst/phy2.eth_xcvr_phy_2/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 9: qsfp0_phy_inst/phy3.eth_xcvr_phy_3/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 10: qsfp0_phy_inst/phy4.eth_xcvr_phy_4/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_rx_user_clocking_internal.gen_single_instance.gtwiz_userclk_rx_inst/gtwiz_userclk_rx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 11: qsfp1_phy_inst/phy1.eth_xcvr_phy_1/xcvr.eth_xcvr_gt_full_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_full_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 12: qsfp1_phy_inst/phy4.eth_xcvr_phy_4/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 13: qsfp1_phy_inst/phy2.eth_xcvr_phy_2/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 14: qsfp1_phy_inst/phy3.eth_xcvr_phy_3/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y11
+	Clock regions with locked loads: (5, 11) 
+	initial rect ((4, 11), (5, 11))
+
+Clock 15: qsfp0_phy_inst/phy2.eth_xcvr_phy_2/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 16: qsfp0_phy_inst/phy3.eth_xcvr_phy_3/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 17: qsfp0_phy_inst/phy4.eth_xcvr_phy_4/xcvr.eth_xcvr_gt_channel_inst/inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_tx_user_clocking_internal.gen_single_instance.gtwiz_userclk_tx_inst/gtwiz_userclk_tx_usrclk2_out[0]
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (5, 12) 
+	initial rect ((5, 12), (5, 12))
+
+Clock 18: cfgmclk_int
+	Clock source type: BUFGCE
+	Clock source region: X4Y6
+	initial rect ((4, 6), (4, 6))
+
+Clock 19: clk_161mhz_ref_int
+	Clock source type: BUFG_GT
+	Clock source region: X5Y12
+	Clock regions with locked loads: (2, 9) 
+	initial rect ((2, 9), (5, 12))
+
+
+
+*****************
+User Constraints:
+*****************
+No user constraints found
+
+

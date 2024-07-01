@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc rfile:../../../../fpga_au200.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc rfile:../../../../fpga_au200.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:19 export:INPUT save:INPUT read:READ} [current_design]
 set_operating_conditions -design_power_budget 160
 set_property src_info {type:XDC file:1 line:48 export:INPUT save:INPUT read:READ} [current_design]

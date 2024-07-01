@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc rfile:../../../fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc id:1 order:EARLY scoped_inst:inst} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/joseantonio/TFM/verilog-ethernet-backup/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc rfile:../../../fpga.gen/sources_1/ip/eth_xcvr_gt_channel/synth/eth_xcvr_gt_channel.xdc id:1 order:EARLY scoped_inst:inst} [current_design]
 set_property src_info {type:SCOPED_XDC file:1 line:66 export:INPUT save:INPUT read:READ} [current_design]
 set_case_analysis 1 [get_pins {inst/gen_gtwizard_gtye4_top.eth_xcvr_gt_channel_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_pwrgood_delay_inst[0].delay_powergood_inst/gen_powergood_delay.pwr_on_fsm_reg/Q}]
 current_instance inst
