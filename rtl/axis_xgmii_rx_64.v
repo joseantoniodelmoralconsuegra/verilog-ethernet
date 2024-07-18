@@ -31,9 +31,9 @@ THE SOFTWARE.
 /*
  * AXI4-Stream XGMII frame receiver (XGMII in, AXI out)
  */
-module axis_xgmii_rx_128 #
+module axis_xgmii_rx_64 #
 (
-    parameter DATA_WIDTH = 128,
+    parameter DATA_WIDTH = 64,
     parameter KEEP_WIDTH = (DATA_WIDTH/8),
     parameter CTRL_WIDTH = (DATA_WIDTH/8),
     parameter PTP_TS_ENABLE = 0,
@@ -80,8 +80,8 @@ module axis_xgmii_rx_128 #
 
 // bus width assertions
 initial begin
-    if (DATA_WIDTH != 128) begin /*paso de 64 a 128*/
-        $error("Error: Interface width must be 128");
+    if (DATA_WIDTH != 64) begin
+        $error("Error: Interface width must be 64");
         $finish;
     end
 
@@ -112,9 +112,9 @@ reg [1:0] state_reg = STATE_IDLE, state_next;
 reg reset_crc;
 
 reg lanes_swapped = 1'b0;
-reg [63:0] swap_rxd = 64'd0; /*paso de 32 a 64*/
-reg [7:0] swap_rxc = 8'd0; /*paso de 4 a 8*/
-reg [7:0] swap_rxc_term = 8'd0; /*paso de 4 a 8*/
+reg [31:0] swap_rxd = 32'd0;
+reg [3:0] swap_rxc = 4'd0;
+reg [3:0] swap_rxc_term = 4'd0;
 
 reg [DATA_WIDTH-1:0] xgmii_rxd_masked = {DATA_WIDTH{1'b0}};
 reg [CTRL_WIDTH-1:0] xgmii_term = {CTRL_WIDTH{1'b0}};
@@ -180,7 +180,7 @@ lfsr #(
     .LFSR_CONFIG("GALOIS"),
     .LFSR_FEED_FORWARD(0),
     .REVERSE(1),
-    .DATA_WIDTH(128), /*cambio de 64 a 128*/
+    .DATA_WIDTH(64),
     .STYLE("AUTO")
 )
 eth_crc (
@@ -194,19 +194,11 @@ eth_crc (
 integer j;
 
 always @* begin
-    for (j = 0; j < 16; j = j + 1) begin 
-        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8]; 
-        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM); 
-    end
-end
-/*
-always @* begin
     for (j = 0; j < 8; j = j + 1) begin
-        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8]; 
-        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM); 
+        xgmii_rxd_masked[j*8 +: 8] = xgmii_rxc[j] ? 8'd0 : xgmii_rxd[j*8 +: 8];
+        xgmii_term[j] = xgmii_rxc[j] && (xgmii_rxd[j*8 +: 8] == XGMII_TERM);
     end
 end
-*/
 
 always @* begin
     state_next = STATE_IDLE;
@@ -329,9 +321,9 @@ always @(posedge clk) begin
     error_bad_frame_reg <= error_bad_frame_next;
     error_bad_fcs_reg <= error_bad_fcs_next;
 
-    swap_rxd <= xgmii_rxd_masked[127:64]; /*cambio de 63:32 a 127:64*/
-    swap_rxc <= xgmii_rxc[15:8]; /*cambio de 7:4 a 15:8*/
-    swap_rxc_term <= xgmii_term[15:8]; /*cambio de 7:4 a 15:8*/
+    swap_rxd <= xgmii_rxd_masked[63:32];
+    swap_rxc <= xgmii_rxc[7:4];
+    swap_rxc_term <= xgmii_term[7:4];
 
     xgmii_start_swap <= 1'b0;
     xgmii_start_d0 <= xgmii_start_swap;
@@ -346,18 +338,18 @@ always @(posedge clk) begin
 
     // lane swapping and termination character detection
     if (lanes_swapped) begin
-        xgmii_rxd_d0 <= {xgmii_rxd_masked[63:0], swap_rxd}; /*cambio de 31:0 a 63:0*/
-        xgmii_rxc_d0 <= {xgmii_rxc[7:0], swap_rxc}; /*cambio de 3:0 a 7:0*/
+        xgmii_rxd_d0 <= {xgmii_rxd_masked[31:0], swap_rxd};
+        xgmii_rxc_d0 <= {xgmii_rxc[3:0], swap_rxc};
 
         term_lane_reg <= 0;
         term_present_reg <= 1'b0;
-        framing_error_reg <= {xgmii_rxc[7:0], swap_rxc} != 0; /*cambio de 3:0 a 7:0*/
+        framing_error_reg <= {xgmii_rxc[3:0], swap_rxc} != 0;
 
         for (i = CTRL_WIDTH-1; i >= 0; i = i - 1) begin
-            if ({xgmii_term[7:0], swap_rxc_term} & (1 << i)) begin /*cambio de 3:0 a 7:0*/
+            if ({xgmii_term[3:0], swap_rxc_term} & (1 << i)) begin
                 term_lane_reg <= i;
                 term_present_reg <= 1'b1;
-                framing_error_reg <= ({xgmii_rxc[7:0], swap_rxc} & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0; /*cambio de 3:0 a 7:0*/
+                framing_error_reg <= ({xgmii_rxc[3:0], swap_rxc} & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0;
                 lanes_swapped <= 1'b0;
             end
         end
@@ -370,7 +362,7 @@ always @(posedge clk) begin
         framing_error_reg <= xgmii_rxc != 0;
 
         for (i = CTRL_WIDTH-1; i >= 0; i = i - 1) begin
-            if (xgmii_rxc[i] && (xgmii_rxd[i*8 +: 8] == XGMII_TERM)) begin 
+            if (xgmii_rxc[i] && (xgmii_rxd[i*8 +: 8] == XGMII_TERM)) begin
                 term_lane_reg <= i;
                 term_present_reg <= 1'b1;
                 framing_error_reg <= (xgmii_rxc & ({CTRL_WIDTH{1'b1}} >> (CTRL_WIDTH-i))) != 0;

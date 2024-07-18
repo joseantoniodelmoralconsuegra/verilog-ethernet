@@ -1,0 +1,1092 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Thu Jul 18 17:02:15 2024
+# Process ID: 10670
+# Current directory: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1
+# Command line: vivado -log eth_mac_40g.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source eth_mac_40g.tcl
+# Log file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1/eth_mac_40g.vds
+# Journal file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1/vivado.jou
+# Running On: joseantonio-Legion-5-15IAH7H, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 14, Host memory: 16475 MB
+#-----------------------------------------------------------
+source eth_mac_40g.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/utils_1/imports/synth_1/eth_mac_10g.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/utils_1/imports/synth_1/eth_mac_10g.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top eth_mac_40g -part xcu200-fsgd2104-2-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcu200'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu200'
+INFO: [Vivado_Tcl 4-1810] synth_design options have changed between reference and incremental; A full resynthesis will be run
+INFO: [Device 21-403] Loading part xcu200-fsgd2104-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10693
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2765.148 ; gain = 397.715 ; free physical = 3292 ; free virtual = 23316
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11065] parameter 'EMPTY_WIDTH' becomes localparam in 'axis_xgmii_tx_128' with formal parameter declaration list [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:91]
+WARNING: [Synth 8-11065] parameter 'MIN_LEN_WIDTH' becomes localparam in 'axis_xgmii_tx_128' with formal parameter declaration list [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:92]
+WARNING: [Synth 8-11065] parameter 'STYLE_INT' becomes localparam in 'lfsr' with formal parameter declaration list [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:355]
+WARNING: [Synth 8-11065] parameter 'MAC_CTRL_ENABLE' becomes localparam in 'eth_mac_40g' with formal parameter declaration list [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/eth_mac_40g.v:186]
+WARNING: [Synth 8-11065] parameter 'TX_USER_WIDTH_INT' becomes localparam in 'eth_mac_40g' with formal parameter declaration list [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/eth_mac_40g.v:187]
+INFO: [Synth 8-6157] synthesizing module 'eth_mac_40g' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/eth_mac_40g.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_rx_128' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:34]
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter KEEP_WIDTH bound to: 16 - type: integer 
+	Parameter CTRL_WIDTH bound to: 16 - type: integer 
+	Parameter PTP_TS_ENABLE bound to: 0 - type: integer 
+	Parameter PTP_TS_FMT_TOD bound to: 1 - type: integer 
+	Parameter PTP_TS_WIDTH bound to: 96 - type: integer 
+	Parameter USER_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'lfsr' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_rx_128' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_tx_128' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:34]
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter KEEP_WIDTH bound to: 16 - type: integer 
+	Parameter CTRL_WIDTH bound to: 16 - type: integer 
+	Parameter ENABLE_PADDING bound to: 1 - type: integer 
+	Parameter ENABLE_DIC bound to: 1 - type: integer 
+	Parameter MIN_FRAME_LENGTH bound to: 64 - type: integer 
+	Parameter PTP_TS_ENABLE bound to: 0 - type: integer 
+	Parameter PTP_TS_FMT_TOD bound to: 1 - type: integer 
+	Parameter PTP_TS_WIDTH bound to: 96 - type: integer 
+	Parameter PTP_TS_CTRL_IN_TUSER bound to: 0 - type: integer 
+	Parameter PTP_TAG_ENABLE bound to: 0 - type: integer 
+	Parameter PTP_TAG_WIDTH bound to: 16 - type: integer 
+	Parameter USER_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized0' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized0' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized1' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized1' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized2' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 24 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized2' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized3' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized3' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized4' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 40 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized4' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized5' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 48 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized5' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized6' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 56 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized6' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized7' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 64 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized7' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized8' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 72 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized8' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized9' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 80 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized9' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized10' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 88 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized10' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized11' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 96 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized11' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized12' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 104 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized12' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized13' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 112 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized13' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized14' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+	Parameter LFSR_WIDTH bound to: 32 - type: integer 
+	Parameter LFSR_POLY bound to: 79764919 - type: integer 
+	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
+	Parameter LFSR_FEED_FORWARD bound to: 0 - type: integer 
+	Parameter REVERSE bound to: 1 - type: integer 
+	Parameter DATA_WIDTH bound to: 120 - type: integer 
+	Parameter STYLE bound to: AUTO - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized14' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_tx_128' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'eth_mac_40g' (0#1) [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/eth_mac_40g.v:34]
+WARNING: [Synth 8-6014] Unused sequential element swap_rxd_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:475]
+WARNING: [Synth 8-6014] Unused sequential element swap_rxc_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:476]
+WARNING: [Synth 8-6014] Unused sequential element swap_rxc_term_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:477]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_rxd_d0_no_masked_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:482]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d0_no_masked_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:483]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d1_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:485]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_term_d0_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:487]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_term_d1_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:488]
+WARNING: [Synth 8-6014] Unused sequential element lanes_swapped_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:490]
+WARNING: [Synth 8-6014] Unused sequential element chivato_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:491]
+WARNING: [Synth 8-6014] Unused sequential element framing_error_d2_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:498]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d0_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:485]
+WARNING: [Synth 8-6014] Unused sequential element term_lane_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:507]
+WARNING: [Synth 8-6014] Unused sequential element term_present_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:508]
+WARNING: [Synth 8-6014] Unused sequential element crc_valid_save_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:586]
+WARNING: [Synth 8-6014] Unused sequential element last_ts_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:592]
+WARNING: [Synth 8-6014] Unused sequential element ts_inc_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.srcs/sources_1/imports/rtl/axis_xgmii_rx_128.v:593]
+WARNING: [Synth 8-6014] Unused sequential element s_empty_aux_lsb_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:699]
+WARNING: [Synth 8-6014] Unused sequential element s_empty_aux_msb_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:701]
+WARNING: [Synth 8-6014] Unused sequential element s_tdata_aux_lsb_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:703]
+WARNING: [Synth 8-6014] Unused sequential element s_empty_aux_lsb_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:704]
+WARNING: [Synth 8-6014] Unused sequential element s_empty_aux_msb_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:706]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tkeep_aux_lsb_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:708]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tkeep_aux_msb_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:710]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tkeep_aux_lsb_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:713]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tkeep_aux_msb_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:715]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tlast_aux_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:718]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tvalid_aux_2_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:719]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tlast_aux_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:720]
+WARNING: [Synth 8-6014] Unused sequential element s_axis_tvalid_aux_3_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:721]
+WARNING: [Synth 8-6014] Unused sequential element s_tdata_reg_reg was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:723]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[3] was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:741]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[2] was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:741]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[1] was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:741]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[0] was removed.  [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:741]
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_lfc_req driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port tx_pause_ack driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_mcf driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_mcf driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_xon driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_xoff driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_paused driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_paused[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_lfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_lfc_xon driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_lfc_xoff driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_lfc_paused driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xon[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_xoff[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_pfc_paused[0] driven by constant 0
+WARNING: [Synth 8-7129] Port s_axis_tuser[0] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[95] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[94] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[93] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[92] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[91] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[90] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[89] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[88] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[87] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[86] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[85] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[84] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[83] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[82] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[81] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[80] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[79] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[78] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[77] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[76] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[75] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[74] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[73] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[72] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[71] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[70] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[69] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[68] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[67] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[66] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[65] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[64] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[63] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[62] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[61] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[60] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[59] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[58] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[57] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[56] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[55] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[54] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[53] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[52] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[51] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[50] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[49] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[48] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[47] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[46] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[45] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[44] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[43] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[42] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[41] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[40] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[39] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[38] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[37] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[36] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[35] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[34] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[33] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[32] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[31] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[30] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[29] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[28] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[27] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[26] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[25] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[24] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[23] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[22] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[21] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[20] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[19] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[18] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[17] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[16] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[15] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[14] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[13] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[12] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[11] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[10] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[9] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[8] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[7] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[6] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[5] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[4] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[3] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[2] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[1] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[0] in module axis_xgmii_tx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[95] in module axis_xgmii_rx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[94] in module axis_xgmii_rx_128 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ptp_ts[93] in module axis_xgmii_rx_128 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:08:47 ; elapsed = 00:08:51 . Memory (MB): peak = 12605.602 ; gain = 10238.168 ; free physical = 256 ; free virtual = 14225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:48 ; elapsed = 00:08:52 . Memory (MB): peak = 12605.602 ; gain = 10238.168 ; free physical = 252 ; free virtual = 14226
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:48 ; elapsed = 00:08:52 . Memory (MB): peak = 12605.602 ; gain = 10238.168 ; free physical = 252 ; free virtual = 14226
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.13 . Memory (MB): peak = 12605.602 ; gain = 0.000 ; free physical = 238 ; free virtual = 14226
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc]
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:52]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_ports {led[*]}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:52]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'led[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:53]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports {led[*]}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:53]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:58]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_ports reset]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:58]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:59]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports reset]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:59]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:67]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_ports {sw[*]}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:67]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'sw[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:68]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports {sw[*]}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:68]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'uart_txd'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_rxd'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_p[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_n[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_p[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_n[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_p[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_n[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_p[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_n[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_p[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_n[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_p[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_n[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_p[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_rx_n[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_p[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_tx_n[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_mgt_refclk_1_p'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_mgt_refclk_1_n'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_fs[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_fs[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:120]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_mgt_refclk_1_p'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:129]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports qsfp0_mgt_refclk_1_p]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:129]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_fs[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_ports {qsfp0_modsell qsfp0_resetl qsfp0_lpmode qsfp0_refclk_reset {qsfp0_fs[*]}}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:131]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_fs[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports {qsfp0_modsell qsfp0_resetl qsfp0_lpmode qsfp0_refclk_reset {qsfp0_fs[*]}}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:132]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:133]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:133]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_ports {qsfp0_modprsl qsfp0_intl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:133]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:134]
+WARNING: [Vivado 12-584] No ports matched 'qsfp0_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:134]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports {qsfp0_modprsl qsfp0_intl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:134]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_p[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:136]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:136]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_n[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:137]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:137]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_p[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:138]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:138]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_n[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:139]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:139]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_p[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:140]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:140]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_n[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:141]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:141]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_p[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:142]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:142]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_n[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:143]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:143]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_p[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:144]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:144]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_n[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:145]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:145]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_p[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:146]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:146]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_n[2]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:147]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:147]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_p[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:148]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:148]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_rx_n[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:149]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:149]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_p[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:150]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:150]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_tx_n[3]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:151]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:151]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_mgt_refclk_1_p'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:154]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:154]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_mgt_refclk_1_n'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:155]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:155]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:156]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:156]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:157]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:157]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:158]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:158]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:159]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:159]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:160]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:160]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:161]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:161]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_fs[0]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:162]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:162]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_fs[1]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:163]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:163]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_mgt_refclk_1_p'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:172]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports qsfp1_mgt_refclk_1_p]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:172]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_fs[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_ports {qsfp1_modsell qsfp1_resetl qsfp1_lpmode qsfp1_refclk_reset {qsfp1_fs[*]}}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:174]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modsell'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_resetl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_lpmode'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_refclk_reset'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_fs[*]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports {qsfp1_modsell qsfp1_resetl qsfp1_lpmode qsfp1_refclk_reset {qsfp1_fs[*]}}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:175]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:176]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:176]
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_ports {qsfp1_modprsl qsfp1_intl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:176]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_modprsl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:177]
+WARNING: [Vivado 12-584] No ports matched 'qsfp1_intl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:177]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports {qsfp1_modprsl qsfp1_intl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:177]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'i2c_scl'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:181]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:181]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_sda'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:182]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:182]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:182]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-to [get_ports {i2c_sda i2c_scl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:184]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports {i2c_sda i2c_scl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:185]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_ports {i2c_sda i2c_scl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:186]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports {i2c_sda i2c_scl}]'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc:187]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_au200.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_mac_40g_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/eth_mac_40g_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -regexp -filter {(ORIG_REF_NAME =~ "eth_mac_(10g|1g_(gmii|rgmii)|mii)_fifo(__\w+__\d+)?" ||
+REF_NAME =~ "eth_mac_(10g|1g_(gmii|rgmii)|mii)_fifo(__\w+__\d+)?")}'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl:23]
+Finished Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/syn/vivado/eth_mac_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_mac_40g_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/eth_mac_40g_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {(ORIG_REF_NAME == axis_async_fifo || REF_NAME == axis_async_fifo)}'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
+Finished Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_mac_40g_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/eth_mac_40g_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {(ORIG_REF_NAME == sync_reset || REF_NAME == sync_reset)}'. [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl:23]
+Finished Sourcing Tcl File [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/eth_mac_40g_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/eth_mac_40g_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12669.633 ; gain = 0.000 ; free physical = 182 ; free virtual = 14228
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 12669.668 ; gain = 0.000 ; free physical = 176 ; free virtual = 14227
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:08:55 ; elapsed = 00:08:59 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 262 ; free virtual = 14223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcu200-fsgd2104-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:08:55 ; elapsed = 00:08:59 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 262 ; free virtual = 14223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:55 ; elapsed = 00:08:59 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 260 ; free virtual = 14222
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:08:57 ; elapsed = 00:09:01 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 257 ; free virtual = 14120
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:08:57 ; elapsed = 00:09:01 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 257 ; free virtual = 14120
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'axis_xgmii_rx_128'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'axis_xgmii_tx_128'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                               00 |                               00
+          STATE_PREAMBLE |                               01 |                               11
+           STATE_PAYLOAD |                               10 |                               01
+              STATE_LAST |                               11 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'axis_xgmii_rx_128'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                              000 |                              000
+          STATE_PREAMBLE |                              001 |                              111
+           STATE_PAYLOAD |                              010 |                              001
+               STATE_PAD |                              011 |                              010
+               STATE_ERR |                              100 |                              101
+             STATE_FCS_1 |                              101 |                              011
+             STATE_FCS_2 |                              110 |                              100
+               STATE_IFG |                              111 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'axis_xgmii_tx_128'
+WARNING: [Synth 8-327] inferring latch for variable 's_tdata_aux_lsb_reg' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:418]
+WARNING: [Synth 8-327] inferring latch for variable 's_tdata_aux_msb_reg' [/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/rtl/axis_xgmii_tx_128.v:419]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:09:27 ; elapsed = 00:09:32 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 166 ; free virtual = 6835
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : synth_design options have changed between reference and incremental
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 1     
+	   5 Input   16 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1937  
+	   3 Input      1 Bit         XORs := 416   
+	   5 Input      1 Bit         XORs := 108   
+	   6 Input      1 Bit         XORs := 103   
+	   7 Input      1 Bit         XORs := 92    
+	   8 Input      1 Bit         XORs := 73    
+	   9 Input      1 Bit         XORs := 76    
+	  12 Input      1 Bit         XORs := 40    
+	  11 Input      1 Bit         XORs := 36    
+	  10 Input      1 Bit         XORs := 49    
+	  13 Input      1 Bit         XORs := 22    
+	  15 Input      1 Bit         XORs := 35    
+	  16 Input      1 Bit         XORs := 32    
+	  17 Input      1 Bit         XORs := 48    
+	  18 Input      1 Bit         XORs := 52    
+	   4 Input      1 Bit         XORs := 147   
+	  20 Input      1 Bit         XORs := 41    
+	  19 Input      1 Bit         XORs := 46    
+	  24 Input      1 Bit         XORs := 58    
+	  23 Input      1 Bit         XORs := 32    
+	  21 Input      1 Bit         XORs := 36    
+	  22 Input      1 Bit         XORs := 44    
+	  25 Input      1 Bit         XORs := 24    
+	  26 Input      1 Bit         XORs := 39    
+	  28 Input      1 Bit         XORs := 41    
+	  29 Input      1 Bit         XORs := 25    
+	  30 Input      1 Bit         XORs := 23    
+	  27 Input      1 Bit         XORs := 26    
+	  31 Input      1 Bit         XORs := 25    
+	  34 Input      1 Bit         XORs := 27    
+	  33 Input      1 Bit         XORs := 39    
+	  37 Input      1 Bit         XORs := 27    
+	  38 Input      1 Bit         XORs := 33    
+	  36 Input      1 Bit         XORs := 29    
+	  35 Input      1 Bit         XORs := 31    
+	  41 Input      1 Bit         XORs := 18    
+	  40 Input      1 Bit         XORs := 23    
+	  39 Input      1 Bit         XORs := 18    
+	  44 Input      1 Bit         XORs := 23    
+	  14 Input      1 Bit         XORs := 23    
+	  32 Input      1 Bit         XORs := 29    
+	  42 Input      1 Bit         XORs := 14    
+	  45 Input      1 Bit         XORs := 24    
+	  47 Input      1 Bit         XORs := 16    
+	  46 Input      1 Bit         XORs := 20    
+	  48 Input      1 Bit         XORs := 18    
+	  52 Input      1 Bit         XORs := 12    
+	  51 Input      1 Bit         XORs := 14    
+	  49 Input      1 Bit         XORs := 12    
+	  55 Input      1 Bit         XORs := 9     
+	  54 Input      1 Bit         XORs := 10    
+	  56 Input      1 Bit         XORs := 11    
+	  53 Input      1 Bit         XORs := 16    
+	  57 Input      1 Bit         XORs := 11    
+	  58 Input      1 Bit         XORs := 7     
+	  60 Input      1 Bit         XORs := 5     
+	  61 Input      1 Bit         XORs := 6     
+	  43 Input      1 Bit         XORs := 18    
+	  62 Input      1 Bit         XORs := 2     
+	  50 Input      1 Bit         XORs := 15    
+	  70 Input      1 Bit         XORs := 2     
+	  63 Input      1 Bit         XORs := 3     
+	  64 Input      1 Bit         XORs := 3     
+	  59 Input      1 Bit         XORs := 6     
+	  66 Input      1 Bit         XORs := 1     
+	  69 Input      1 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 5     
+	               64 Bit    Registers := 5     
+	               32 Bit    Registers := 13    
+	               16 Bit    Registers := 4     
+	                8 Bit    Registers := 3     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 6     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 21    
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 2     
+	   4 Input  128 Bit        Muxes := 1     
+	   8 Input  128 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 9     
+	   4 Input   16 Bit        Muxes := 2     
+	  16 Input   16 Bit        Muxes := 1     
+	   8 Input   16 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 33    
+	   8 Input    6 Bit        Muxes := 1     
+	  10 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 21    
+	  17 Input    4 Bit        Muxes := 1     
+	   8 Input    4 Bit        Muxes := 2     
+	  16 Input    3 Bit        Muxes := 1     
+	  24 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 22    
+	  16 Input    1 Bit        Muxes := 2     
+	  15 Input    1 Bit        Muxes := 2     
+	   4 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_lfc_req driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port rx_pfc_req[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port tx_pause_ack driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_mcf driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_rx_mcf driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_xon driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_xoff driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_lfc_paused driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_pkt driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[3] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[2] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[1] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xon[0] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[7] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[6] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[5] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[4] driven by constant 0
+WARNING: [Synth 8-3917] design eth_mac_40g has port stat_tx_pfc_xoff[3] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:09:40 ; elapsed = 00:09:46 . Memory (MB): peak = 12669.668 ; gain = 10302.234 ; free physical = 167 ; free virtual = 6833
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:09:44 ; elapsed = 00:09:51 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 156 ; free virtual = 6811
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:09:44 ; elapsed = 00:09:51 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 156 ; free virtual = 6811
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:09:45 ; elapsed = 00:09:53 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 167 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:09:47 ; elapsed = 00:09:54 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 162 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 162 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 161 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 161 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 161 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 161 ; free virtual = 6809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|eth_mac_40g | axis_xgmii_rx_inst/xgmii_rxd_d2_reg[127] | 3      | 64    | NO           | NO                 | YES               | 64     | 0       | 
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     3|
+|2     |CARRY8 |     4|
+|3     |LUT1   |     1|
+|4     |LUT2   |   679|
+|5     |LUT3   |   555|
+|6     |LUT4   |   677|
+|7     |LUT5   |   623|
+|8     |LUT6   |  2771|
+|9     |MUXF7  |     5|
+|10    |SRL16E |    64|
+|11    |FDRE   |  1218|
+|12    |FDSE   |   135|
+|13    |LD     |   128|
+|14    |IBUF   |   304|
+|15    |OBUF   |   482|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:09:47 ; elapsed = 00:09:55 . Memory (MB): peak = 12677.195 ; gain = 10309.762 ; free physical = 161 ; free virtual = 6809
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 883 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:09:46 ; elapsed = 00:09:56 . Memory (MB): peak = 12681.105 ; gain = 10249.605 ; free physical = 7541 ; free virtual = 14441
+Synthesis Optimization Complete : Time (s): cpu = 00:09:49 ; elapsed = 00:09:59 . Memory (MB): peak = 12681.105 ; gain = 10313.672 ; free physical = 7541 ; free virtual = 14441
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 12681.105 ; gain = 0.000 ; free physical = 7503 ; free virtual = 14438
+INFO: [Netlist 29-17] Analyzing 444 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12717.215 ; gain = 0.000 ; free physical = 7468 ; free virtual = 14438
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 435 instances were transformed.
+  BUFG => BUFGCE: 3 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 304 instances
+  LD => LDCE: 128 instances
+
+Synth Design complete | Checksum: bdfdc4ad
+INFO: [Common 17-83] Releasing license: Synthesis
+68 Infos, 346 Warnings, 84 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:09:54 ; elapsed = 00:10:04 . Memory (MB): peak = 12717.250 ; gain = 11426.770 ; free physical = 7450 ; free virtual = 14436
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 14191.485; main = 11732.802; forked = 7367.723
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 24854.891; main = 12717.219; forked = 12177.691
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 12741.227 ; gain = 0.000 ; free physical = 7445 ; free virtual = 14437
+INFO: [Common 17-1381] The checkpoint '/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1/eth_mac_40g.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file eth_mac_40g_utilization_synth.rpt -pb eth_mac_40g_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Jul 18 17:12:25 2024...

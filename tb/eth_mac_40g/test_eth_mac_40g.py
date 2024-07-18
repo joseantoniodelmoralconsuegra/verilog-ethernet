@@ -161,9 +161,6 @@ async def run_test_rx(dut, payload_lengths=None, payload_data=None, ifg=12):
         rx_frame = await tb.axis_sink.recv()
         tx_frame = tx_frames.pop(0)
         
-        tb.log.info("TX frame: %s", tx_frame)
-        tb.log.info(" %s", '')
-        tb.log.info("%s", '')
         tb.log.info("RX frame.tdata: %s", rx_frame.tdata)
         tb.log.info(" %s", '')
         tb.log.info("%s", '')
@@ -173,26 +170,13 @@ async def run_test_rx(dut, payload_lengths=None, payload_data=None, ifg=12):
         tb.log.info("rx_frame.tdata == test_data: %s", rx_frame.tdata == test_data)
         tb.log.info(" %s", '')
         tb.log.info("%s", '')
-
-        # frame_error = rx_frame.tuser & 1
-        # ptp_ts = rx_frame.tuser >> 1
-        # ptp_ts_ns = ptp_ts / 2**16
-
-        tx_frame_sfd_ns = get_time_from_sim_steps(tx_frame.sim_time_sfd, "ns")
-
-        tb.log.info("tx_frame.start_lane:  %s", tx_frame.start_lane )
+        
         if tx_frame.start_lane == 4: # if tx_frame.start_lane == 4:
             # start in lane 4 reports 1 full cycle delay, so subtract half clock period
             tx_frame_sfd_ns -= tb.clk_period/2
 
-        # tb.log.info("RX frame PTP TS: %f ns", ptp_ts_ns)
-        # tb.log.info("TX frame SFD sim time: %f ns", tx_frame_sfd_ns)
-        # tb.log.info("Difference: %f ns", abs(ptp_ts_ns - tx_frame_sfd_ns))
-
-        # assert rx_frame.tdata == test_data
-        # assert rx_frame.tdata == tx_frame.data  # tampoco es lo mismo
-        # assert frame_error == 0
-        # assert abs(ptp_ts_ns - tx_frame_sfd_ns - tb.clk_period) < 0.01
+        tb.log.info("RX packet is OK!: %s", rx_frame.tdata == test_data)
+        assert rx_frame.tdata == test_data
 
     assert tb.axis_sink.empty()
 
@@ -687,22 +671,13 @@ async def run_test_pfc(dut, ifg=12):
 
 
 def size_list():
-    # return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
-    # return [128, 256] + [512, 1514, 9214] + [60]*10
+    return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
+    # return [109, 110, 111, 113]
 
-    # return [116, 117, 118, 119, 120, 121, 122, 123]
-    # return [120, 124, 122, 123]
-    # return [125, 126]
-    # return [125]
-    # return [126]
-    # return [127]
-    # return [128]
-    # return [129]
-    # return [130]
-    # return [131]
-
-    # return [116]
-    return list(range(116, 132)) 
+    # return list(range(109, 141)) 
+    # return list(range(109, 125)) 
+    # return list(range(116, 132))
+    # return [109]
 
 
 def incrementing_payload(length):

@@ -1,0 +1,12 @@
+poetry init
+poetry install
+poetry shell
+
+pip install pytest
+pip install cocotb
+pip install scapy
+pip install cocotb-test
+pip install cocotbext-axi
+pip install cocotbext-eth
+pip install pypi
+make

@@ -324,7 +324,7 @@ end
 
 endgenerate
 
-eth_mac_10g #(
+eth_mac_40g #(
     .DATA_WIDTH(DATA_WIDTH),
     .KEEP_WIDTH(KEEP_WIDTH),
     .CTRL_WIDTH(CTRL_WIDTH),
@@ -340,7 +340,7 @@ eth_mac_10g #(
     .TX_USER_WIDTH(TX_USER_WIDTH),
     .RX_USER_WIDTH(RX_USER_WIDTH)
 )
-eth_mac_10g_inst (
+eth_mac_40g_inst (
     .tx_clk(tx_clk),
     .tx_rst(tx_rst),
     .rx_clk(rx_clk),

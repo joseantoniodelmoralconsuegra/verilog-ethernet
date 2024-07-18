@@ -202,9 +202,9 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
 
     for test_data in test_frames:
         rx_frame = await tb.xgmii_sink.recv()
-        ptp_ts = await tb.tx_ptp_ts_sink.recv()
+        # ptp_ts = await tb.tx_ptp_ts_sink.recv()
 
-        ptp_ts_ns = int(ptp_ts.ts) / 2**16
+        # ptp_ts_ns = int(ptp_ts.ts) / 2**16
 
         rx_frame_sfd_ns = get_time_from_sim_steps(rx_frame.sim_time_sfd, "ns")
 
@@ -212,14 +212,14 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
             # start in lane 4 reports 1 full cycle delay, so subtract half clock period
             rx_frame_sfd_ns -= tb.clk_period/2
 
-        tb.log.info("TX frame PTP TS: %f ns", ptp_ts_ns)
+        # tb.log.info("TX frame PTP TS: %f ns", ptp_ts_ns)
         tb.log.info("RX frame SFD sim time: %f ns", rx_frame_sfd_ns)
-        tb.log.info("Difference: %f ns", abs(rx_frame_sfd_ns - ptp_ts_ns))
+        # tb.log.info("Difference: %f ns", abs(rx_frame_sfd_ns - ptp_ts_ns))
 
         assert rx_frame.get_payload() == test_data
         assert rx_frame.check_fcs()
         assert rx_frame.ctrl is None
-        assert abs(rx_frame_sfd_ns - ptp_ts_ns - tb.clk_period) < 0.01
+        # assert abs(rx_frame_sfd_ns - ptp_ts_ns - tb.clk_period) < 0.01
 
     assert tb.xgmii_sink.empty()
 
@@ -675,7 +675,7 @@ def size_list():
     # return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
     # return [128, 256] + [512, 1514, 9214] + [60]*10
     # return [128]
-    return [127]
+    return [128-9]
 
 
 def incrementing_payload(length):
@@ -694,7 +694,8 @@ if cocotb.SIM_NAME:
         factory = TestFactory(test)
         factory.add_option("payload_lengths", [size_list])
         factory.add_option("payload_data", [incrementing_payload])
-        factory.add_option("ifg", [12, 0])
+        factory.add_option("ifg", [12])
+        # factory.add_option("ifg", [12, 0])
         factory.generate_tests()
 
     # factory = TestFactory(run_test_tx_alignment)

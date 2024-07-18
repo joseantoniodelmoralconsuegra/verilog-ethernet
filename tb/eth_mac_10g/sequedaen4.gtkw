@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Jun 10 21:53:18 2024
+[*]
+[dumpfile] "/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/tb/eth_mac_10g/eth_mac_10g.fst"
+[dumpfile_mtime] "Mon Jun 10 21:52:15 2024"
+[dumpfile_size] 49594
+[savefile] "/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/tb/eth_mac_10g/sequedaen4.gtkw"
+[timestart] 160580
+[size] 1920 970
+[pos] -1 -1
+*-13.000000 179830 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] eth_mac_10g.
+[treeopen] eth_mac_10g.genblk1.
+[sst_width] 233
+[signals_width] 246
+[sst_expanded] 1
+[sst_vpaned_height] 273
+@22
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.xgmii_txd[127:0]
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.s_axis_tdata[127:0]
+@28
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.state_reg[2:0]
+@24
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.cfg_ifg[7:0]
+@22
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.ifg_offset[16:0]
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.deficit_idle_count_reg[3:0]
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.ifg_count_next[15:0]
+[color] 1
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.s_empty_reg[3:0]
+@23
+eth_mac_10g.genblk1.axis_xgmii_tx_inst.s_axis_tkeep[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

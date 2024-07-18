@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1'
+HD_PWD='/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log fpga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
+EAStep vivado -log eth_mac_40g.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source eth_mac_40g.tcl

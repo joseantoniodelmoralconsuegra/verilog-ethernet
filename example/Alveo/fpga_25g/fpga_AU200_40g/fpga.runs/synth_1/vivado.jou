@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue May 21 00:10:02 2024
-# Process ID: 21665
-# Current directory: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1
-# Command line: vivado -log fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
-# Log file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1/fpga.vds
-# Journal file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_10g/fpga.runs/synth_1/vivado.jou
+# Start of session at: Thu Jul 18 17:02:15 2024
+# Process ID: 10670
+# Current directory: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1
+# Command line: vivado -log eth_mac_40g.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source eth_mac_40g.tcl
+# Log file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1/eth_mac_40g.vds
+# Journal file: /home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/example/Alveo/fpga_25g/fpga_AU200_40g/fpga.runs/synth_1/vivado.jou
 # Running On: joseantonio-Legion-5-15IAH7H, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 14, Host memory: 16475 MB
 #-----------------------------------------------------------
-source fpga.tcl -notrace
+source eth_mac_40g.tcl -notrace

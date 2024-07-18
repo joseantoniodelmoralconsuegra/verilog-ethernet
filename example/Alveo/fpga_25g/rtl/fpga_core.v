@@ -67,8 +67,8 @@ module fpga_core #
      */
     input  wire [CH_CNT-1:0]     eth_tx_clk,
     input  wire [CH_CNT-1:0]     eth_tx_rst,
-    output wire [CH_CNT*64-1:0]  eth_txd,
-    output wire [CH_CNT*8-1:0]   eth_txc,
+    output wire [CH_CNT*128-1:0]  eth_txd,
+    output wire [CH_CNT*16-1:0]   eth_txc,
     input  wire [CH_CNT-1:0]     eth_rx_clk,
     input  wire [CH_CNT-1:0]     eth_rx_rst,
     input  wire [CH_CNT*128-1:0]  eth_rxd,
@@ -83,8 +83,8 @@ wire rx_axis_tready;
 wire rx_axis_tlast;
 wire rx_axis_tuser;
 
-wire [63:0] tx_axis_tdata;
-wire [7:0] tx_axis_tkeep;
+wire [127:0] tx_axis_tdata;
+wire [15:0] tx_axis_tkeep;
 wire tx_axis_tvalid;
 wire tx_axis_tready;
 wire tx_axis_tlast;
@@ -325,7 +325,7 @@ end
 
 endgenerate
 
-eth_mac_10g_fifo #(
+eth_mac_40g_fifo #(
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
     .MIN_FRAME_LENGTH(128), /*paso de 64 a 128*/
@@ -334,7 +334,7 @@ eth_mac_10g_fifo #(
     .RX_FIFO_DEPTH(4096),
     .RX_FRAME_FIFO(1)
 )
-eth_mac_10g_fifo_inst (
+eth_mac_40g_fifo_inst (
     .rx_clk(eth_rx_clk[0 +: 1]),
     .rx_rst(eth_rx_rst[0 +: 1]),
     .tx_clk(eth_tx_clk[0 +: 1]),
@@ -356,8 +356,8 @@ eth_mac_10g_fifo_inst (
     .rx_axis_tlast(rx_axis_tlast),
     .rx_axis_tuser(rx_axis_tuser),
 
-    .xgmii_rxd(eth_rxd[0*64 +: 64]), /*pasar de 64 a 128*/
-    .xgmii_rxc(eth_rxc[0*8 +: 8]),
+    .xgmii_rxd(eth_rxd[0*128 +: 128]), /*pasar de 64 a 128*/
+    .xgmii_rxc(eth_rxc[0*16 +: 16]),
     .xgmii_txd(eth_txd[0*128 +: 128]), /*paso de 64 a 128*/
     .xgmii_txc(eth_txc[0*16 +: 16]), /*paso de 8 a 16*/
 

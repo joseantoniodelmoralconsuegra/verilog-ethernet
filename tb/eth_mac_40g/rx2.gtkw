@@ -1,0 +1,101 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Jul 15 16:45:52 2024
+[*]
+[dumpfile] "/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/tb/eth_mac_40g/eth_mac_40g.fst"
+[dumpfile_mtime] "Mon Jul 15 16:45:43 2024"
+[dumpfile_size] 54083
+[savefile] "/home/joseantonio/TFM/verilog-ethernet-toqueteo/verilog-ethernet/tb/eth_mac_40g/rx2.gtkw"
+[timestart] 3514100
+[size] 1920 970
+[pos] -1 -1
+*-16.000000 183800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] eth_mac_40g.
+[treeopen] eth_mac_40g.genblk1.
+[treeopen] eth_mac_40g.genblk1.axis_xgmii_rx_inst.
+[treeopen] eth_mac_40g.genblk1.axis_xgmii_tx_inst.
+[sst_width] 233
+[signals_width] 214
+[sst_expanded] 1
+[sst_vpaned_height] 611
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.m_axis_tdata[127:0]
+@28
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.m_axis_tkeep[15:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.m_axis_tlast
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.m_axis_tuser
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.m_axis_tvalid
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxd_d1[127:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxc_d0[15:0]
+[color] 5
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.crc_next[31:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.crc_state[31:0]
+@24
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.state_next[1:0]
+@c00024
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.state_reg[1:0]
+@28
+(0)eth_mac_40g.genblk1.axis_xgmii_rx_inst.state_reg[1:0]
+(1)eth_mac_40g.genblk1.axis_xgmii_rx_inst.state_reg[1:0]
+@1401200
+-group_end
+@28
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.lanes_swapped
+@24
+[color] 2
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_lane_reg[3:0]
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_lane_d0_reg[3:0]
+@28
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.clk
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_start_d0
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.lanes_swapped
+@200
+-
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_lane_reg_2[3:0]
+@28
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_present_reg_2
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_present_d0_reg
+@24
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.term_lane_d0_reg[3:0]
+@22
+[color] 1
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.chivato[3:0]
+@200
+-
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.eth_crc.data_in[127:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.eth_crc.data_out[127:0]
+[color] 2
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.eth_crc.state_in[31:0]
+[color] 6
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.eth_crc.state_out[31:0]
+@28
+[color] 5
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.crc_valid[15:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.crc_valid_save[15:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.reset_crc
+@200
+-
+@29
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.framing_error_reg_data
+@22
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxd[127:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxd_d0[127:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxc[15:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.xgmii_rxc_d0[15:0]
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.swap_rxc[7:0]
+@28
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.framing_error_reg
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.framing_error_d0_reg
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.framing_error_d1_reg
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_frame_next
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_frame
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_frame_reg
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_fcs_next
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_fcs
+eth_mac_40g.genblk1.axis_xgmii_rx_inst.error_bad_fcs_reg
+[pattern_trace] 1
+[pattern_trace] 0
