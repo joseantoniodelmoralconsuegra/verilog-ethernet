@@ -1,16 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcu200-fsgd2104-2-e" LaunchTime="1721314933" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/eth_mac_10g.dcp">
-  <File Type="VDS-TIMING-PB" Name="eth_mac_40g_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="eth_mac_40g_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="eth_mac_40g.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="eth_mac_40g_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="eth_mac_40g_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="eth_mac_40g_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="eth_mac_40g.vds"/>
-  <File Type="REPORTS-TCL" Name="eth_mac_40g_reports.tcl"/>
-  <File Type="PA-TCL" Name="eth_mac_40g.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xcu200-fsgd2104-2-e" LaunchTime="1721586012" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/eth_mac_10g.dcp">
+  <File Type="VDS-TIMING-PB" Name="fpga_core_40g_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="fpga_core_40g_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="fpga_core_40g.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="fpga_core_40g_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="fpga_core_40g_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="fpga_core_40g_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="fpga_core_40g.vds"/>
+  <File Type="REPORTS-TCL" Name="fpga_core_40g_reports.tcl"/>
+  <File Type="PA-TCL" Name="fpga_core_40g.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/arbiter.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/axil_reg_if.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/lib/verilog-axi/rtl/axil_reg_if.v"/>
+        <Attr Name="ImportTime" Val="1721408170"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/axil_reg_if_rd.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/lib/verilog-axi/rtl/axil_reg_if_rd.v"/>
+        <Attr Name="ImportTime" Val="1721408170"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/axil_reg_if_wr.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/lib/verilog-axi/rtl/axil_reg_if_wr.v"/>
+        <Attr Name="ImportTime" Val="1721408170"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/axis_adapter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/lib/verilog-axis/rtl/axis_adapter.v"/>
+        <Attr Name="ImportTime" Val="1721408175"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_async_fifo.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_fifo.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/axis_fifo_adapter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../lib/axis/rtl/axis_fifo_adapter.v"/>
+        <Attr Name="ImportTime" Val="1716230854"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/rtl/axis_xgmii_rx_128.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -25,8 +98,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/lfsr.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/conf_iface.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/conf_iface.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -41,81 +116,87 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/arbiter.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/eth_mac_40g_fifo.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../rtl/eth_mac_40g_fifo.v"/>
+        <Attr Name="ImportTime" Val="1721314516"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/arp.v">
+    <File Path="$PPRDIR/../lib/eth/rtl/lfsr.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/arp_cache.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/packet_builder.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/packet_builder.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/arp_eth_rx.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/packet_manager.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/packet_manager.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/arp_eth_tx.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/packetgen.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/packetgen.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_async_fifo.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/packetgen_512.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/packetgen_512.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/pm_counter.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/pm_counter.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/axis_fifo.v">
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/priority_encoder.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../rtl/debounce_switch.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/switch_simple_fifo.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/tfg-2324/rtl/switch_simple_fifo.v"/>
+        <Attr Name="ImportTime" Val="1721327217"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/eth_arb_mux.v">
+    <File Path="$PSRCDIR/sources_1/imports/rtl/fpga_core_40g.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../rtl/fpga_core_40g.v"/>
+        <Attr Name="ImportTime" Val="1721489821"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -137,11 +218,9 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/rtl/eth_mac_40g_fifo.v">
+    <File Path="$PPRDIR/../rtl/debounce_switch.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../rtl/eth_mac_40g_fifo.v"/>
-        <Attr Name="ImportTime" Val="1721314516"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -227,7 +306,73 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../rtl/fpga_core.v">
+    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/sync_reset.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/xgmii_baser_dec_64.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/xgmii_baser_enc_64.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/fpga_au200_40g.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../rtl/fpga_au200_40g.v"/>
+        <Attr Name="ImportTime" Val="1721490500"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/arp.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/arp_cache.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/arp_eth_rx.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/arp_eth_tx.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lib/eth/rtl/eth_arb_mux.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -275,22 +420,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/priority_encoder.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../lib/eth/lib/axis/rtl/sync_reset.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../lib/eth/rtl/udp_64.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -331,30 +460,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/xgmii_baser_dec_64.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../lib/eth/rtl/xgmii_baser_enc_64.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../rtl/fpga_au200.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/defines.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -381,7 +486,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="eth_mac_40g"/>
+      <Option Name="TopModule" Val="fpga_core_40g"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

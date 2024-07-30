@@ -57,9 +57,7 @@ class TB:
         self.log = logging.getLogger("cocotb.tb")
         self.log.setLevel(logging.DEBUG)
 
-        if len(dut.xgmii_txd) == 128: # Introduzco condicion a 128 bits de longitud
-            self.clk_period = 12.8
-        elif len(dut.xgmii_txd) == 64:
+        if len(dut.xgmii_txd) == 64:
             self.clk_period = 6.4
         else:
             self.clk_period = 3.2
@@ -198,13 +196,13 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
     test_frames = [payload_data(x) for x in payload_lengths()]
 
     for test_data in test_frames:
-        await tb.axis_source.send(AxiStreamFrame(test_data, tuser=0))
+        await tb.axis_source.send(AxiStreamFrame(test_data, tuser=2))
 
     for test_data in test_frames:
         rx_frame = await tb.xgmii_sink.recv()
-        # ptp_ts = await tb.tx_ptp_ts_sink.recv()
+        ptp_ts = await tb.tx_ptp_ts_sink.recv()
 
-        # ptp_ts_ns = int(ptp_ts.ts) / 2**16
+        ptp_ts_ns = int(ptp_ts.ts) / 2**16
 
         rx_frame_sfd_ns = get_time_from_sim_steps(rx_frame.sim_time_sfd, "ns")
 
@@ -212,14 +210,14 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
             # start in lane 4 reports 1 full cycle delay, so subtract half clock period
             rx_frame_sfd_ns -= tb.clk_period/2
 
-        # tb.log.info("TX frame PTP TS: %f ns", ptp_ts_ns)
+        tb.log.info("TX frame PTP TS: %f ns", ptp_ts_ns)
         tb.log.info("RX frame SFD sim time: %f ns", rx_frame_sfd_ns)
-        # tb.log.info("Difference: %f ns", abs(rx_frame_sfd_ns - ptp_ts_ns))
+        tb.log.info("Difference: %f ns", abs(rx_frame_sfd_ns - ptp_ts_ns))
 
         assert rx_frame.get_payload() == test_data
         assert rx_frame.check_fcs()
         assert rx_frame.ctrl is None
-        # assert abs(rx_frame_sfd_ns - ptp_ts_ns - tb.clk_period) < 0.01
+        assert abs(rx_frame_sfd_ns - ptp_ts_ns - tb.clk_period) < 0.01
 
     assert tb.xgmii_sink.empty()
 
@@ -672,10 +670,7 @@ async def run_test_pfc(dut, ifg=12):
 
 
 def size_list():
-    # return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
-    # return [128, 256] + [512, 1514, 9214] + [60]*10
-    # return [128]
-    return [128-9]
+    return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
 
 
 def incrementing_payload(length):
@@ -688,32 +683,30 @@ def cycle_en():
 
 if cocotb.SIM_NAME:
 
-    # for test in [run_test_rx, run_test_tx]:
-    for test in [run_test_tx]:
+    for test in [run_test_rx, run_test_tx]:
 
         factory = TestFactory(test)
         factory.add_option("payload_lengths", [size_list])
         factory.add_option("payload_data", [incrementing_payload])
-        factory.add_option("ifg", [12])
-        # factory.add_option("ifg", [12, 0])
+        factory.add_option("ifg", [12, 0])
         factory.generate_tests()
 
-    # factory = TestFactory(run_test_tx_alignment)
-    # factory.add_option("payload_data", [incrementing_payload])
-    # factory.add_option("ifg", [12])
-    # factory.generate_tests()
+    factory = TestFactory(run_test_tx_alignment)
+    factory.add_option("payload_data", [incrementing_payload])
+    factory.add_option("ifg", [12])
+    factory.generate_tests()
 
-    # for test in [run_test_tx_underrun, run_test_tx_error]:
+    for test in [run_test_tx_underrun, run_test_tx_error]:
 
-    #     factory = TestFactory(test)
-    #     factory.add_option("ifg", [12])
-    #     factory.generate_tests()
+        factory = TestFactory(test)
+        factory.add_option("ifg", [12])
+        factory.generate_tests()
 
-    # if cocotb.top.PFC_ENABLE.value:
-    #     for test in [run_test_lfc, run_test_pfc]:
-    #         factory = TestFactory(test)
-    #         factory.add_option("ifg", [12])
-    #         factory.generate_tests()
+    if cocotb.top.PFC_ENABLE.value:
+        for test in [run_test_lfc, run_test_pfc]:
+            factory = TestFactory(test)
+            factory.add_option("ifg", [12])
+            factory.generate_tests()
 
 
 # cocotb-test
@@ -725,8 +718,7 @@ axis_rtl_dir = os.path.abspath(os.path.join(lib_dir, 'axis', 'rtl'))
 
 
 @pytest.mark.parametrize(("enable_dic", "pfc_en"), [(1, 1), (1, 0), (0, 0)])
-# @pytest.mark.parametrize("data_width", [32, 64, 128])
-@pytest.mark.parametrize("data_width", [128])
+@pytest.mark.parametrize("data_width", [32, 64])
 def test_eth_mac_10g(request, data_width, enable_dic, pfc_en):
     dut = "eth_mac_10g"
     module = os.path.splitext(os.path.basename(__file__))[0]
@@ -734,10 +726,10 @@ def test_eth_mac_10g(request, data_width, enable_dic, pfc_en):
 
     verilog_sources = [
         os.path.join(rtl_dir, f"{dut}.v"),
-        # os.path.join(rtl_dir, "axis_xgmii_rx_32.v"),
+        os.path.join(rtl_dir, "axis_xgmii_rx_32.v"),
         os.path.join(rtl_dir, "axis_xgmii_rx_64.v"),
-        # os.path.join(rtl_dir, "axis_xgmii_tx_32.v"),
-        os.path.join(rtl_dir, "axis_xgmii_tx_128.v"),
+        os.path.join(rtl_dir, "axis_xgmii_tx_32.v"),
+        os.path.join(rtl_dir, "axis_xgmii_tx_64.v"),
         os.path.join(rtl_dir, "mac_ctrl_rx.v"),
         os.path.join(rtl_dir, "mac_ctrl_tx.v"),
         os.path.join(rtl_dir, "mac_pause_ctrl_rx.v"),
@@ -752,8 +744,8 @@ def test_eth_mac_10g(request, data_width, enable_dic, pfc_en):
     parameters['CTRL_WIDTH'] = parameters['DATA_WIDTH'] // 8
     parameters['ENABLE_PADDING'] = 1
     parameters['ENABLE_DIC'] = enable_dic
-    parameters['MIN_FRAME_LENGTH'] = 128 # Cambio de 64 a 128
-    parameters['PTP_TS_ENABLE'] = 0 # Cambio de 1 a 0
+    parameters['MIN_FRAME_LENGTH'] = 64
+    parameters['PTP_TS_ENABLE'] = 1
     parameters['PTP_TS_FMT_TOD'] = 1
     parameters['PTP_TS_WIDTH'] = 96 if parameters['PTP_TS_FMT_TOD'] else 64
     parameters['TX_PTP_TS_CTRL_IN_TUSER'] = parameters['PTP_TS_ENABLE']

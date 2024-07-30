@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1718102281" />
+    <testcase name="run_test_tx_001" classname="test_eth_mac_10g" file="/home/joseantonio/.cache/pypoetry/virtualenvs/eth-mac-10g-edit-QF52MYIg-py3.10/lib/python3.10/site-packages/cocotb/regression.py" lineno="731" time="14.625727415084839" sim_time_ns="217.601" ratio_time="14.877960857903611">
+      <failure message="Test failed with RANDOM_SEED=1718102281" />
+    </testcase>
+  </testsuite>
+</testsuites>

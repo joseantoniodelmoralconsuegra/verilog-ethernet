@@ -323,11 +323,19 @@ class XlgmiiSource(Reset):
                         else:
                             min_ifg = 0
 
-                        if self.byte_lanes > 4 and (ifg_cnt > min_ifg or self.force_offset_start):
-                            ifg_cnt = ifg_cnt-8 # ifg_cnt = ifg_cnt-4
-                            frame.start_lane = 8 # frame.start_lane = 4
-                            frame.data = bytearray([XgmiiCtrl.IDLE]*8)+frame.data # frame.data = bytearray([XgmiiCtrl.IDLE]*4)+frame.data
-                            frame.ctrl = [1]*8+frame.ctrl # frame.ctrl = [1]*4+frame.ctrl
+                        if self.force_offset_start:
+                            if (ifg_cnt > min_ifg or self.force_offset_start): # if self.byte_lanes > 4 and (ifg_cnt > min_ifg or self.force_offset_start):
+                                ifg_cnt = ifg_cnt-8
+                                frame.start_lane = 8 
+                                frame.data = bytearray([XgmiiCtrl.IDLE]*8)+frame.data 
+                                frame.ctrl = [1]*8+frame.ctrl
+                        else:
+                            if self.byte_lanes > 4 and (ifg_cnt > min_ifg or self.force_offset_start):
+                                ifg_cnt = ifg_cnt-8
+                                frame.start_lane = 8 
+                                frame.data = bytearray([XgmiiCtrl.IDLE]*8)+frame.data 
+                                frame.ctrl = [1]*8+frame.ctrl
+
 
                         if self.enable_dic:
                             deficit_idle_cnt = max(deficit_idle_cnt+ifg_cnt, 0)
@@ -413,6 +421,7 @@ class XlgmiiSink(Reset):
         self.log.info("  Data width: %d bits (%d bytes)", self.width, self.byte_lanes)
 
         self._run_cr = None
+        self.force_offset_start = False  # Agregar el atributo force_offset_start
 
         self._init_reset(reset, reset_active_level)
 

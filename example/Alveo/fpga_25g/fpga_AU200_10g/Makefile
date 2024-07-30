@@ -11,6 +11,30 @@ SYN_FILES += rtl/eth_xcvr_phy_wrapper.v
 SYN_FILES += rtl/eth_xcvr_phy_quad_wrapper.v
 SYN_FILES += rtl/debounce_switch.v
 SYN_FILES += rtl/sync_signal.v
+
+SYN_FILES += tfg-2324/rtl/conf_iface.v
+SYN_FILES += tfg-2324/rtl/packet_builder.v
+SYN_FILES += tfg-2324/rtl/packetgen.v
+SYN_FILES += tfg-2324/rtl/packetgen_512.v
+SYN_FILES += tfg-2324/rtl/packet_manager.v
+SYN_FILES += tfg-2324/rtl/pm_counter.v
+SYN_FILES += tfg-2324/rtl/switch_simple_fifo.v
+
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/arbiter.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/priority_encoder.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_fifo.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_async_fifo.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_async_fifo_adapter.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_fifo_adapter.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/sync_reset.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_adapter.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_cobs_encode.v
+SYN_FILES += tfg-2324/lib/verilog-axis/rtl/axis_cobs_decode.v
+
+SYN_FILES += tfg-2324/lib/verilog-axi/rtl/axil_reg_if_rd.v
+SYN_FILES += tfg-2324/lib/verilog-axi/rtl/axil_reg_if_wr.v
+SYN_FILES += tfg-2324/lib/verilog-axi/rtl/axil_reg_if.v
+
 SYN_FILES += lib/eth/rtl/eth_mac_10g_fifo.v
 SYN_FILES += lib/eth/rtl/eth_mac_10g.v
 SYN_FILES += lib/eth/rtl/axis_xgmii_rx_64.v

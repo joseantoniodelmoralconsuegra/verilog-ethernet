@@ -140,13 +140,15 @@ class TB:
         await RisingEdge(self.dut.rx_clk)
 
 
-async def run_test_rx(dut, payload_lengths=None, payload_data=None, ifg=12):
+async def run_test_rx(dut, payload_lengths=None, payload_data=None, ifg=12, force_offset_start=False):
 
     tb = TB(dut)
 
     tb.xgmii_source.ifg = ifg
     tb.dut.cfg_ifg.value = ifg
     tb.dut.cfg_rx_enable.value = 1
+
+    tb.xgmii_source.force_offset_start = force_offset_start # Forcing/no-forcing swapping
 
     await tb.reset()
 
@@ -184,6 +186,51 @@ async def run_test_rx(dut, payload_lengths=None, payload_data=None, ifg=12):
     await RisingEdge(dut.rx_clk)
 
 
+async def run_test_rx_swapped(dut, payload_lengths=None, payload_data=None, ifg=12, force_offset_start=True):
+
+    tb = TB(dut)
+
+    tb.xgmii_source.ifg = ifg
+    tb.dut.cfg_ifg.value = ifg
+    tb.dut.cfg_rx_enable.value = 1
+
+    tb.xgmii_source.force_offset_start = force_offset_start # Forcing/no-forcing swapping
+
+    await tb.reset()
+
+    test_frames = [payload_data(x) for x in payload_lengths()]
+    tx_frames = []
+
+    for test_data in test_frames:
+        test_frame = XlgmiiFrame.from_payload(test_data, tx_complete=tx_frames.append)
+        await tb.xgmii_source.send(test_frame)
+
+    for test_data in test_frames:
+        rx_frame = await tb.axis_sink.recv()
+        tx_frame = tx_frames.pop(0)
+        
+        tb.log.info("RX frame.tdata: %s", rx_frame.tdata)
+        tb.log.info(" %s", '')
+        tb.log.info("%s", '')
+        tb.log.info("Expected data: %s", test_data)
+        tb.log.info(" %s", '')
+        tb.log.info("%s", '')
+        tb.log.info("rx_frame.tdata == test_data: %s", rx_frame.tdata == test_data)
+        tb.log.info(" %s", '')
+        tb.log.info("%s", '')
+        
+        if tx_frame.start_lane == 4: # if tx_frame.start_lane == 4:
+            # start in lane 4 reports 1 full cycle delay, so subtract half clock period
+            tx_frame_sfd_ns -= tb.clk_period/2
+
+        tb.log.info("RX packet is OK!: %s", rx_frame.tdata == test_data)
+        assert rx_frame.tdata == test_data
+
+    assert tb.axis_sink.empty()
+
+    await RisingEdge(dut.rx_clk)
+    await RisingEdge(dut.rx_clk)
+
 async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
 
     tb = TB(dut)
@@ -201,9 +248,6 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
 
     for test_data in test_frames:
         rx_frame = await tb.xgmii_sink.recv()
-        # ptp_ts = await tb.tx_ptp_ts_sink.recv()
-
-        # ptp_ts_ns = int(ptp_ts.ts) / 2**16
 
         rx_frame_sfd_ns = get_time_from_sim_steps(rx_frame.sim_time_sfd, "ns")
 
@@ -211,14 +255,11 @@ async def run_test_tx(dut, payload_lengths=None, payload_data=None, ifg=12):
             # start in lane 4 reports 1 full cycle delay, so subtract half clock period
             rx_frame_sfd_ns -= tb.clk_period/2
 
-        # tb.log.info("TX frame PTP TS: %f ns", ptp_ts_ns)
         tb.log.info("RX frame SFD sim time: %f ns", rx_frame_sfd_ns)
-        # tb.log.info("Difference: %f ns", abs(rx_frame_sfd_ns - ptp_ts_ns))
 
         assert rx_frame.get_payload() == test_data
         assert rx_frame.check_fcs()
         assert rx_frame.ctrl is None
-        # assert abs(rx_frame_sfd_ns - ptp_ts_ns - tb.clk_period) < 0.01
 
     assert tb.xgmii_sink.empty()
 
@@ -672,11 +713,7 @@ async def run_test_pfc(dut, ifg=12):
 
 def size_list():
     return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
-    # return [109, 110, 111, 113]
-
     # return list(range(109, 141)) 
-    # return list(range(109, 125)) 
-    # return list(range(116, 132))
     # return [109]
 
 
@@ -690,14 +727,19 @@ def cycle_en():
 
 if cocotb.SIM_NAME:
 
-    # for test in [run_test_rx, run_test_tx]:
-    for test in [run_test_rx]:
+    for test in [run_test_rx, run_test_tx, run_test_rx_swapped]:
 
         factory = TestFactory(test)
         factory.add_option("payload_lengths", [size_list])
         factory.add_option("payload_data", [incrementing_payload])
         factory.add_option("ifg", [12])
-        # factory.add_option("ifg", [12, 0])
+        factory.generate_tests()
+
+
+    for test in [run_test_tx_underrun]:
+
+        factory = TestFactory(test)
+        factory.add_option("ifg", [12])
         factory.generate_tests()
 
     # factory = TestFactory(run_test_tx_alignment)

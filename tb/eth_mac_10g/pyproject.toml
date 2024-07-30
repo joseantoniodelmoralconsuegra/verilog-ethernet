@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "eth-mac-10g-edit"
+version = "1"
+description = ""
+authors = ["joseadelmoral"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

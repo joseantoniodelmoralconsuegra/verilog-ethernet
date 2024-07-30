@@ -1,0 +1,39 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xcu200-fsgd2104-2-e",
+      "gen_directory": "../../../../fpga.gen/sources_1/bd/ila_2",
+      "name": "ila_2",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2"
+    },
+    "design_tree": {
+      "ila_2": ""
+    },
+    "components": {
+      "ila_2": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "14",
+        "xci_name": "ila_2_ila_0_0",
+        "xci_path": "ip/ila_2_ila_0_0/ila_2_ila_0_0.xci",
+        "inst_hier_path": "ila_2",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "131072"
+          },
+          "C_EN_STRG_QUAL": {
+            "value": "1"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "8"
+          }
+        }
+      }
+    }
+  }
+}
