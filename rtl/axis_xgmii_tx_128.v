@@ -137,7 +137,7 @@ reg [7:0] swap_txc = 8'd0;
 reg [DATA_WIDTH-1:0] s_axis_tdata_masked, s_axis_tdata_masked_crc;
 
 reg [DATA_WIDTH-1:0] s_tdata_reg = 0, s_tdata_next, s_tdata_reg_aux, s_tdata_reg_aux_2;
-reg [64-1:0] s_tdata_aux_lsb, s_tdata_aux_lsb_2, s_tdata_aux_lsb_3, s_tdata_aux_msb, s_tdata_aux_msb_2, s_tdata_aux_msb_3;
+reg [64-1:0] s_tdata_aux_lsb, s_tdata_aux_lsb_2 = 0, s_tdata_aux_lsb_3 = 0, s_tdata_aux_msb, s_tdata_aux_msb_2, s_tdata_aux_msb_3;
 reg [EMPTY_WIDTH-1:0] s_empty_reg = 0, s_empty_next, s_empty_reg_aux, s_empty_reg_aux_2;
 reg [8-1:0] s_empty_aux_lsb, s_empty_aux_lsb_2, s_empty_aux_lsb_3, s_empty_aux_msb, s_empty_aux_msb_2, s_empty_aux_msb_3;
 reg [8-1:0] s_axis_tkeep_aux_lsb = 0, s_axis_tkeep_aux_lsb_2, s_axis_tkeep_aux_lsb_3;
@@ -392,6 +392,9 @@ always @* begin
 
     s_tdata_next = s_tdata_reg;
     s_empty_next = s_empty_reg;
+    
+    s_tdata_aux_lsb = s_tdata_aux_lsb_2;
+    s_tdata_aux_msb = s_tdata_aux_msb_2;
 
     // XGMII idle
     xgmii_txd_next = {CTRL_WIDTH{XGMII_IDLE}};
