@@ -713,8 +713,6 @@ async def run_test_pfc(dut, ifg=12):
 
 def size_list():
     return list(range(60, 128)) + [512, 1514, 9214] + [60]*10
-    # return list(range(109, 141)) 
-    # return [109]
 
 
 def incrementing_payload(length):
@@ -725,9 +723,36 @@ def cycle_en():
     return itertools.cycle([0, 0, 0, 1])
 
 
+# Crear el payload específico
+def payload_data(length):
+    # Prefijo fijo en hexadecimal
+    prefix = bytes.fromhex('badcfe000030ebfeebfe00308000')
+    
+    # Sufijo fijo en hexadecimal
+    suffix = bytes.fromhex('ebfe00408000dddd')
+    
+    # Calcular cuántos bytes de 'C' (0xC) se necesitan para completar los 192 bytes
+    c_length = length - len(prefix) - len(suffix)
+    
+    # Usar itertools.cycle para generar la secuencia de 'C' (0xC) repetida
+    c_sequence = bytearray(itertools.islice(itertools.cycle([0xCC]), c_length))
+    
+    # Construir el payload completo
+    return prefix + c_sequence + suffix
+
+
 if cocotb.SIM_NAME:
 
-    for test in [run_test_rx, run_test_tx, run_test_rx_swapped]:
+    for test in [run_test_rx]:
+
+        factory = TestFactory(test)
+        factory.add_option("payload_lengths", [size_list])
+        # factory.add_option("payload_data", [payload_data])
+        factory.add_option("payload_data", [incrementing_payload])
+        factory.add_option("ifg", [12])
+        factory.generate_tests()
+
+    for test in [run_test_tx]:
 
         factory = TestFactory(test)
         factory.add_option("payload_lengths", [size_list])
@@ -735,30 +760,19 @@ if cocotb.SIM_NAME:
         factory.add_option("ifg", [12])
         factory.generate_tests()
 
-
     for test in [run_test_tx_underrun]:
 
         factory = TestFactory(test)
         factory.add_option("ifg", [12])
         factory.generate_tests()
+    
+    for test in [run_test_rx_swapped]:
 
-    # factory = TestFactory(run_test_tx_alignment)
-    # factory.add_option("payload_data", [incrementing_payload])
-    # factory.add_option("ifg", [12])
-    # factory.generate_tests()
-
-    # for test in [run_test_tx_underrun, run_test_tx_error]:
-
-    #     factory = TestFactory(test)
-    #     factory.add_option("ifg", [12])
-    #     factory.generate_tests()
-
-    # if cocotb.top.PFC_ENABLE.value:
-    #     for test in [run_test_lfc, run_test_pfc]:
-    #         factory = TestFactory(test)
-    #         factory.add_option("ifg", [12])
-    #         factory.generate_tests()
-
+        factory = TestFactory(test)
+        factory.add_option("payload_lengths", [size_list])
+        factory.add_option("payload_data", [incrementing_payload])
+        factory.add_option("ifg", [12])
+        factory.generate_tests()
 
 # cocotb-test
 
